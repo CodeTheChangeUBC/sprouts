@@ -18,8 +18,6 @@ class MealTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.allowsMultipleSelection = true
-        
         loadMeals()
     }
 
@@ -56,16 +54,17 @@ class MealTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return false // TODO: implement making a meal
+        return false
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: the task of handling ingredient depletion is left to the backend
-        order.append(meals[indexPath.row])
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        for i in 0..<meals.count {
+            guard let currentCell = tableView.visibleCells[i] as? MealTableViewCell else {
+                fatalError("Someone used the wrong type of cell")
+            }
+            for _ in 0..<currentCell.getQuantity() {
+                order.append(meals[i])
+            }
+        }
     }
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        order.remove(at: indexPath.row)
-    }
-
 }

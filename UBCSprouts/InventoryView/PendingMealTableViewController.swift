@@ -84,7 +84,6 @@ class PendingMealTableViewController: UITableViewController {
     @IBAction func addMeal(sender: UIStoryboardSegue) {
         if let source = sender.source as? MealTableViewController {
             let order = source.order
-            
             for meal in order {
                 let newIndexPath = IndexPath(row: pendingMeals.count, section: 0)
                 pendingMeals.append(PendingMeal(meal))

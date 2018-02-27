@@ -9,11 +9,12 @@
 import UIKit
 
 class MealTableViewCell: UITableViewCell {
+    
+    private var quantity = 0
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    
-    var state: String!
+    @IBOutlet weak var quantityLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,15 @@ class MealTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func quantityChanged(_ sender: UIStepper) {
+        quantity = Int(sender.value)
+        quantityLabel.text = String(quantity)
+    }
+    
+    func getQuantity() -> Int {
+        return quantity
     }
 
 }
