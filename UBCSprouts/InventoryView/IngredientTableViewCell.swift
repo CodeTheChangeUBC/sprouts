@@ -9,6 +9,10 @@
 import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
+    
+    private var index = -1
+    
+    var delegate: ReplenishDelegate?
 
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var quantityLabel: UITextField!
@@ -23,5 +27,21 @@ class IngredientTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setIndex(as newInt: Int) {
+        index = newInt
+    }
+    
+    func getIndex() -> Int {
+        return index
+    }
 
+    @IBAction func replenishOne(_ sender: UIButton) {
+        delegate?.replenish(forIndex: index)
+    }
+    
+}
+
+protocol ReplenishDelegate {
+    func replenish(forIndex index: Int)
 }

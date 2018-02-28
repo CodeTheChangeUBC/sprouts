@@ -49,6 +49,7 @@ class MealTableViewController: UITableViewController {
         
         cell.nameLabel.text = meal.name
         cell.priceLabel.text = meal.getPriceAsString()
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         return cell
     }

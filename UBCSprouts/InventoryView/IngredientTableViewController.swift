@@ -9,7 +9,12 @@
 import UIKit
 import os.log
 
-class IngredientTableViewController: UITableViewController {
+class IngredientTableViewController: UITableViewController, ReplenishDelegate {
+    
+    func replenish(forIndex index: Int) {
+        records[index].ingredient.amount = records[index].maxAmount
+        tableView.reloadData()
+    }
     
     private var records = [IngredientStock]()
 
@@ -61,12 +66,15 @@ class IngredientTableViewController: UITableViewController {
         
         cell.nameLabel.text = record.ingredient.name
         cell.quantityLabel.text = record.getQuantityAsString()
+        cell.setIndex(as: indexPath.row)
+        cell.delegate = self
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return false // TODO: make true and implement editing (ordering more)
+        return false
     }
 
     /*

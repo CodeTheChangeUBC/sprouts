@@ -18,6 +18,11 @@ struct IngredientStock {
         self.maxAmount = maxAmount
     }
     
+    init(forIngredient ingredient: Ingredient, forMaxAmount maxAmount: Float) {
+        self.ingredient = ingredient
+        self.maxAmount = maxAmount
+    }
+    
     func getQuantityAsString() -> String {
         return "\(ingredient.amount!)/\(maxAmount!) \(ingredient.unit!)"
     }
