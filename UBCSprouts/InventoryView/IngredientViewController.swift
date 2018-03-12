@@ -9,7 +9,16 @@
 import UIKit
 
 class IngredientViewController: UIViewController {
-
+    
+    //MARK: Properties
+    @IBOutlet weak var ingredientNameTextField: UITextField!
+    
+    @IBOutlet weak var ingredientWeightTextField: UITextField!
+    
+    @IBOutlet weak var ingredientMaxTextField: UITextField!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
