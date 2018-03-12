@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45C723642056EBF2005C1016 /* IngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C723632056EBF2005C1016 /* IngredientViewController.swift */; };
 		84032C1A2038B14300D11F57 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C192038B14300D11F57 /* Meal.swift */; };
 		84032C1C2038B20600D11F57 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C1B2038B20600D11F57 /* Ingredient.swift */; };
 		84032C1E2038BEE900D11F57 /* IngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C1D2038BEE900D11F57 /* IngredientTableViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45C723632056EBF2005C1016 /* IngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewController.swift; sourceTree = "<group>"; };
 		84032C192038B14300D11F57 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		84032C1B2038B20600D11F57 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		84032C1D2038BEE900D11F57 /* IngredientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				84502D952038A4770029B322 /* InventoryViewController.swift */,
 				84032C1B2038B20600D11F57 /* Ingredient.swift */,
+				45C723632056EBF2005C1016 /* IngredientViewController.swift */,
 				84032C252038E32500D11F57 /* IngredientStock.swift */,
 				84032C1D2038BEE900D11F57 /* IngredientTableViewController.swift */,
 				84032C212038C25400D11F57 /* IngredientTableViewCell.swift */,
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84032C282038E70400D11F57 /* PendingMeal.swift in Sources */,
+				45C723642056EBF2005C1016 /* IngredientViewController.swift in Sources */,
 				84032C222038C25400D11F57 /* IngredientTableViewCell.swift in Sources */,
 				84032C242038CD8500D11F57 /* MealTableViewCell.swift in Sources */,
 				84502D962038A4770029B322 /* InventoryViewController.swift in Sources */,
