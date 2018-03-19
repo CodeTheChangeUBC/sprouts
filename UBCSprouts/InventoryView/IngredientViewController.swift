@@ -9,7 +9,8 @@
 import UIKit
 import os.log
 
-class IngredientViewController: UIViewController {
+class IngredientViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     
     //MARK: Properties
     @IBOutlet weak var ingredientNameTextField: UITextField!
@@ -18,7 +19,12 @@ class IngredientViewController: UIViewController {
     
     @IBOutlet weak var ingredientMaxTextField: UITextField!
     
+    @IBOutlet weak var ingredientTypePicker: UIPickerView!
+    
+    var ingredientTypeData: [String] = [String]()
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
+   
     
     /*
      This value is either passed by `IngredientTableViewController` in `prepare(for:sender:)`
@@ -28,14 +34,32 @@ class IngredientViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Connect data:
+        ingredientTypePicker.delegate = self
+        ingredientTypePicker.dataSource = self
+        
+        //Inputing data into the Ingredient Type Picker
+        ingredientTypeData = ["Dairy/Non-Dairy Product","Produce","Bread","Grains","Spices","Hot Drink","Packaged Drink","Packaged Food","Other"]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //Number of columns in the picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    //Number of rows in the picker
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return ingredientTypeData.count
+    }
+    //Returns ingredient type into the row
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return ingredientTypeData[row]
+    }
+    
     
 
     

@@ -215,8 +215,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Xgq-9b-RmV">
-                                <rect key="frame" x="0.0" y="104" width="375" height="266.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Xgq-9b-RmV">
+                                <rect key="frame" x="0.0" y="104" width="375" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YNZ-B2-i2S">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
@@ -236,7 +236,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-Jx-Ddp">
-                                        <rect key="frame" x="0.0" y="105.5" width="375" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="80.5" width="375" height="55.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Current Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP4-lA-mJ8">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -253,7 +253,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a1G-u7-Z5V">
-                                        <rect key="frame" x="0.0" y="211" width="375" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="161" width="375" height="55.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Maximum Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmm-0D-gHU">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -267,6 +267,20 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eMN-bg-w7n">
+                                        <rect key="frame" x="0.0" y="241.5" width="375" height="236.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-Op-7qs">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h25-cq-tS8">
+                                                <rect key="frame" x="0.0" y="20.5" width="375" height="216"/>
+                                            </pickerView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -291,6 +305,7 @@
                     <connections>
                         <outlet property="ingredientMaxTextField" destination="GhC-t3-lOc" id="DAn-Vd-X0w"/>
                         <outlet property="ingredientNameTextField" destination="RWS-QY-okJ" id="DVl-kw-gbb"/>
+                        <outlet property="ingredientTypePicker" destination="h25-cq-tS8" id="K9H-tN-DL4"/>
                         <outlet property="ingredientWeightTextField" destination="4rQ-Jd-ADX" id="Ouc-RJ-CXo"/>
                         <outlet property="saveButton" destination="XDi-uy-SOp" id="3hm-kP-VFb"/>
                     </connections>
