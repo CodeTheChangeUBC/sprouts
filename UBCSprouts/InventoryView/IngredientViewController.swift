@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class IngredientViewController: UIViewController {
     
@@ -18,6 +19,12 @@ class IngredientViewController: UIViewController {
     @IBOutlet weak var ingredientMaxTextField: UITextField!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    /*
+     This value is either passed by `IngredientTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new meal.
+     */
+    var ingredient: Ingredient?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +40,36 @@ class IngredientViewController: UIViewController {
 
     
     // MARK: - Navigation
-     @IBAction func cancel(_ sender: UIBarButtonItem) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+    // Configure the destination view controller only when the save button is pressed.
+       /* guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        let ingredientName = ingredientNameTextField.text ?? ""
+        let ingredientCWeight = NumberFormatter().number(from: ingredientWeightTextField.text!)
+        if let ingredientCWeight = ingredientCWeight {
+            let ingredientCurrentWeight = Float(truncating: ingredientCWeight)
+        }
+        let ingredientMWeight = NumberFormatter().number(from: ingredientMaxTextField.text!)
+        if let ingredientMWeight = ingredientMWeight{
+            let ingredientMaxWeight = Float(truncating: ingredientMWeight)
+        }
+        ingredient = Ingredient(withName: ingredientName, forAmount: ingredientCWeight as! Float, inUnits: <#T##String#>)
+        */
+        
+        
+        
+        
+        
+        
+        
+    }
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
      }
-     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
+    
     
 
 }
