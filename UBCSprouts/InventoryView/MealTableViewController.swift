@@ -40,6 +40,10 @@ class MealTableViewController: UITableViewController {
         return meals.count
     }
     
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as? MealTableViewCell else {
             fatalError("Something went wrong and I don't know how to fix it")
