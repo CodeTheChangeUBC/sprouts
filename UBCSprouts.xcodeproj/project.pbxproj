@@ -27,6 +27,11 @@
 		84502DA92038A4770029B322 /* UBCSproutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DA82038A4770029B322 /* UBCSproutsTests.swift */; };
 		84502DB42038A5D50029B322 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DB32038A5D50029B322 /* DocumentsViewController.swift */; };
 		84502DB62038A9420029B322 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DB52038A9420029B322 /* SettingsViewController.swift */; };
+		8454197F20642C8C00F86497 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454197E20642C8C00F86497 /* UserViewController.swift */; };
+		847BC8282048F19E00E6D588 /* VolunteerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BC8272048F19E00E6D588 /* VolunteerRecord.swift */; };
+		84BA152E204889B400CCAFDC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA152D204889B400CCAFDC /* Event.swift */; };
+		84BA153020488BD000CCAFDC /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA152F20488BD000CCAFDC /* Volunteer.swift */; };
+		84C902772057684000774B26 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C902762057684000774B26 /* SignInViewController.swift */; };
 		A0B0AE382060A197001D2555 /* UBCSprouts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0B0AE362060A197001D2555 /* UBCSprouts.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +70,11 @@
 		84502DAA2038A4770029B322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84502DB32038A5D50029B322 /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
 		84502DB52038A9420029B322 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8454197E20642C8C00F86497 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		847BC8272048F19E00E6D588 /* VolunteerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerRecord.swift; sourceTree = "<group>"; };
+		84BA152D204889B400CCAFDC /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		84BA152F20488BD000CCAFDC /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer.swift; sourceTree = "<group>"; };
+		84C902762057684000774B26 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		A0B0AE372060A197001D2555 /* UBCSprouts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UBCSprouts.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				84502D932038A4770029B322 /* VolunteerViewController.swift */,
+				84BA152D204889B400CCAFDC /* Event.swift */,
+				84BA152F20488BD000CCAFDC /* Volunteer.swift */,
+				847BC8272048F19E00E6D588 /* VolunteerRecord.swift */,
 			);
 			path = VolunteerView;
 			sourceTree = "<group>";
@@ -150,6 +163,8 @@
 		84502D902038A4770029B322 /* UBCSprouts */ = {
 			isa = PBXGroup;
 			children = (
+				8454197D20642C5700F86497 /* UserViewController */,
+				84C90275205767C900774B26 /* SignInView */,
 				84032C182038AA5400D11F57 /* SettingsView */,
 				84032C172038AA4A00D11F57 /* DocumentsView */,
 				84502D912038A4770029B322 /* AppDelegate.swift */,
@@ -171,6 +186,22 @@
 				84502DAA2038A4770029B322 /* Info.plist */,
 			);
 			path = UBCSproutsTests;
+			sourceTree = "<group>";
+		};
+		8454197D20642C5700F86497 /* UserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8454197E20642C8C00F86497 /* UserViewController.swift */,
+			);
+			path = UserViewController;
+			sourceTree = "<group>";
+		};
+		84C90275205767C900774B26 /* SignInView */ = {
+			isa = PBXGroup;
+			children = (
+				84C902762057684000774B26 /* SignInViewController.swift */,
+			);
+			path = SignInView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,14 +308,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				84032C282038E70400D11F57 /* PendingMeal.swift in Sources */,
+				8454197F20642C8C00F86497 /* UserViewController.swift in Sources */,
 				45C723642056EBF2005C1016 /* IngredientViewController.swift in Sources */,
 				84032C222038C25400D11F57 /* IngredientTableViewCell.swift in Sources */,
 				84032C242038CD8500D11F57 /* MealTableViewCell.swift in Sources */,
 				84502D962038A4770029B322 /* InventoryViewController.swift in Sources */,
 				84502DB42038A5D50029B322 /* DocumentsViewController.swift in Sources */,
 				84032C302038EA2000D11F57 /* PendingMealTableViewController.swift in Sources */,
+				84BA153020488BD000CCAFDC /* Volunteer.swift in Sources */,
+				847BC8282048F19E00E6D588 /* VolunteerRecord.swift in Sources */,
 				84032C1C2038B20600D11F57 /* Ingredient.swift in Sources */,
+				84C902772057684000774B26 /* SignInViewController.swift in Sources */,
 				84502D922038A4770029B322 /* AppDelegate.swift in Sources */,
+				84BA152E204889B400CCAFDC /* Event.swift in Sources */,
 				84502DB62038A9420029B322 /* SettingsViewController.swift in Sources */,
 				84032C1A2038B14300D11F57 /* Meal.swift in Sources */,
 				84032C1E2038BEE900D11F57 /* IngredientTableViewController.swift in Sources */,
