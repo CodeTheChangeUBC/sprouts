@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Admin" representedClassName="Admin" syncable="YES" codeGenerationType="class"/>
-    <entity name="Food" representedClassName="Food" syncable="YES" codeGenerationType="class"/>
+    <entity name="Admin" representedClassName="Admin" parentEntity="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="inChargeOf" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Food" representedClassName="Food" syncable="YES" codeGenerationType="class">
+        <attribute name="inStock" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Inventory" representedClassName="Inventory" syncable="YES" codeGenerationType="class"/>
-    <entity name="Period" representedClassName="Period" syncable="YES" codeGenerationType="class"/>
-    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+    <entity name="Person" representedClassName="Person" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="campus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Revenue" representedClassName="Revenue" syncable="YES" codeGenerationType="class"/>
-    <entity name="Volunteer" representedClassName="Volunteer" syncable="YES" codeGenerationType="class"/>
+    <entity name="Revenue" representedClassName="Revenue" syncable="YES" codeGenerationType="class">
+        <attribute name="expense" optional="YES" syncable="YES"/>
+        <attribute name="profit" optional="YES" syncable="YES"/>
+        <attribute name="sales" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" syncable="YES"/>
+        <attribute name="hours" optional="YES" syncable="YES"/>
+        <attribute name="month" optional="YES" syncable="YES"/>
+        <attribute name="year" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="Volunteer" representedClassName="Volunteer" parentEntity="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="campus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateJoined" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="totalHoursWorked" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Admin" positionX="-54" positionY="-9" width="128" height="45"/>
-        <element name="Food" positionX="18" positionY="63" width="128" height="45"/>
-        <element name="Inventory" positionX="-18" positionY="27" width="128" height="45"/>
-        <element name="Person" positionX="36" positionY="81" width="128" height="135"/>
-        <element name="Period" positionX="-63" positionY="-18" width="128" height="45"/>
-        <element name="Revenue" positionX="0" positionY="45" width="128" height="45"/>
-        <element name="Volunteer" positionX="-36" positionY="9" width="128" height="45"/>
+        <element name="Admin" positionX="-236" positionY="9" width="128" height="58"/>
+        <element name="Food" positionX="61" positionY="77" width="128" height="103"/>
+        <element name="Inventory" positionX="106" positionY="-207" width="128" height="45"/>
+        <element name="Schedule" positionX="-234" positionY="-333" width="128" height="103"/>
+        <element name="Person" positionX="-137" positionY="-144" width="128" height="118"/>
+        <element name="Revenue" positionX="97" positionY="-54" width="128" height="88"/>
+        <element name="Volunteer" positionX="-56" positionY="11" width="128" height="88"/>
     </elements>
 </model>
