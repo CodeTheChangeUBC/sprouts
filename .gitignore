@@ -2,8 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+# Paths local to Raghav's Computer
 UBCSprouts.xcodeproj/project.xcworkspace/xcuserdata/
 UBCSprouts.xcodeproj/xcuserdata/raghav.xcuserdatad/
+.DS_Store
 
 ## Build generated
 build/
