@@ -32,6 +32,7 @@
 		84BA152E204889B400CCAFDC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA152D204889B400CCAFDC /* Event.swift */; };
 		84BA153020488BD000CCAFDC /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA152F20488BD000CCAFDC /* Volunteer.swift */; };
 		84C902772057684000774B26 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C902762057684000774B26 /* SignInViewController.swift */; };
+		A09362CC2069C666008B616A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09362CB2069C666008B616A /* DataController.swift */; };
 		A0B0AE382060A197001D2555 /* UBCSprouts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0B0AE362060A197001D2555 /* UBCSprouts.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		84BA152D204889B400CCAFDC /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		84BA152F20488BD000CCAFDC /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer.swift; sourceTree = "<group>"; };
 		84C902762057684000774B26 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		A09362CB2069C666008B616A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A0B0AE372060A197001D2555 /* UBCSprouts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UBCSprouts.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				84032C182038AA5400D11F57 /* SettingsView */,
 				84032C172038AA4A00D11F57 /* DocumentsView */,
 				84502D912038A4770029B322 /* AppDelegate.swift */,
+				A09362CB2069C666008B616A /* DataController.swift */,
 				A0B0AE362060A197001D2555 /* UBCSprouts.xcdatamodeld */,
 				84032C162038AA4300D11F57 /* VolunteerView */,
 				84032C152038AA3B00D11F57 /* InventoryView */,
@@ -327,6 +330,7 @@
 				84032C2C2038E98500D11F57 /* PendingMealTableViewCell.swift in Sources */,
 				84032C262038E32500D11F57 /* IngredientStock.swift in Sources */,
 				84032C202038BEFB00D11F57 /* MealTableViewController.swift in Sources */,
+				A09362CC2069C666008B616A /* DataController.swift in Sources */,
 				A0B0AE382060A197001D2555 /* UBCSprouts.xcdatamodeld in Sources */,
 				84502D942038A4770029B322 /* VolunteerViewController.swift in Sources */,
 			);
