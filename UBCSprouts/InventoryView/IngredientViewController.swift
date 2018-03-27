@@ -66,29 +66,6 @@ class IngredientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-    // Configure the destination view controller only when the save button is pressed.
-       /* guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
-        }
-        let ingredientName = ingredientNameTextField.text ?? ""
-        let ingredientCWeight = NumberFormatter().number(from: ingredientWeightTextField.text!)
-        if let ingredientCWeight = ingredientCWeight {
-            let ingredientCurrentWeight = Float(truncating: ingredientCWeight)
-        }
-        let ingredientMWeight = NumberFormatter().number(from: ingredientMaxTextField.text!)
-        if let ingredientMWeight = ingredientMWeight{
-            let ingredientMaxWeight = Float(truncating: ingredientMWeight)
-        }
-        ingredient = Ingredient(withName: ingredientName, forAmount: ingredientCWeight as! Float, inUnits: <#T##String#>)
-        */
-        
-        
-        
-        
-        
-        
-        
     }
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
