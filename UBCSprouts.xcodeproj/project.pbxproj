@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		45C723642056EBF2005C1016 /* IngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C723632056EBF2005C1016 /* IngredientViewController.swift */; };
+		63EBE5FF20649A9E0011008B /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */; };
+		63EBE6052069C81A0011008B /* AddVolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */; };
 		84032C1A2038B14300D11F57 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C192038B14300D11F57 /* Meal.swift */; };
 		84032C1C2038B20600D11F57 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C1B2038B20600D11F57 /* Ingredient.swift */; };
 		84032C1E2038BEE900D11F57 /* IngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C1D2038BEE900D11F57 /* IngredientTableViewController.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		45C723632056EBF2005C1016 /* IngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewController.swift; sourceTree = "<group>"; };
+		63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
+		63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVolunteerViewController.swift; sourceTree = "<group>"; };
 		84032C192038B14300D11F57 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		84032C1B2038B20600D11F57 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		84032C1D2038BEE900D11F57 /* IngredientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +125,9 @@
 				84502D932038A4770029B322 /* VolunteerViewController.swift */,
 				84BA152D204889B400CCAFDC /* Event.swift */,
 				84BA152F20488BD000CCAFDC /* Volunteer.swift */,
+				63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */,
 				847BC8272048F19E00E6D588 /* VolunteerRecord.swift */,
+				63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */,
 			);
 			path = VolunteerView;
 			sourceTree = "<group>";
@@ -321,7 +327,9 @@
 				84C902772057684000774B26 /* SignInViewController.swift in Sources */,
 				84502D922038A4770029B322 /* AppDelegate.swift in Sources */,
 				84BA152E204889B400CCAFDC /* Event.swift in Sources */,
+				63EBE6052069C81A0011008B /* AddVolunteerViewController.swift in Sources */,
 				84502DB62038A9420029B322 /* SettingsViewController.swift in Sources */,
+				63EBE5FF20649A9E0011008B /* PeopleTableViewController.swift in Sources */,
 				84032C1A2038B14300D11F57 /* Meal.swift in Sources */,
 				84032C1E2038BEE900D11F57 /* IngredientTableViewController.swift in Sources */,
 				84032C2C2038E98500D11F57 /* PendingMealTableViewCell.swift in Sources */,
@@ -483,6 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UBCSprouts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.UBCSprouts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -497,6 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UBCSprouts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.UBCSprouts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
