@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import Foundation
 
 class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
-
+    
+    let searchBar = UISearchBar()
+    let tableData = ["Bill", "Harry", "Jack"]
+    
+    var filtArray = [String]()
+    var showResults = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBar();
     }
     
     func createSearchBar() {
-        let searchBar = UISearchBar()
+        
         searchBar.showsCancelButton = false
         searchBar.delegate = self
         searchBar.placeholder = "volunteer search"
@@ -24,32 +31,72 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
         self.navigationItem.titleView = searchBar
         
     }
+    
+    @IBAction func unwindSegueVolunteers(_ sender: UIStoryboardSegue){
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filtArray = tableData.filter({(names: String) -> Bool in
+            return names.lowercased().range(of: searchText.lowercased()) != nil
+        })
+        
+        if (searchText != "") {
+            showResults = true
+            self.tableView.reloadData()
+        } else {
+            showResults = false
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        if (showResults) {
+            return filtArray.count
+        } else {
+            return tableData.count }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
+        
+        if(showResults) {
+            cell.textLabel!.text = filtArray[indexPath.row]
+            return cell
+        } else {
+            cell.textLabel!.text = tableData[indexPath.row]
+            return cell
+        }
+        
     }
-    */
+    
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        showResults = true
+        searchBar.endEditing(true)
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.

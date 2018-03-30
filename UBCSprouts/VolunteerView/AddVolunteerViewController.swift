@@ -8,23 +8,23 @@
 
 import UIKit
 
-class AddVolunteerViewController: UIViewController {
+class AddVolunteerViewController: UIViewController, UINavigationBarDelegate{
 
     
     //MARK: Properties
     
     @IBOutlet weak var firstNameTextField: UITextField!
-    
     @IBOutlet weak var lastNameTextField: UITextField!
-    
     @IBOutlet weak var ageTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var addVolunteerNavigationBar: UINavigationBar!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addVolunteerNavigationBar.delegate = self
 
         // Do any additional setup after loading the view.
     }
