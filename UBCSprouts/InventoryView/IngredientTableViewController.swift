@@ -46,7 +46,7 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
         for i in records.indices {
             records[i].ingredient.amount = records[i].maxAmount
         }
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,7 +66,7 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
         
         cell.nameLabel.text = record.ingredient.name
         cell.quantityLabel.text = record.getQuantityAsString()
-        cell.setIndex(as: indexPath.row)
+        cell.index = indexPath.row
         cell.delegate = self
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         

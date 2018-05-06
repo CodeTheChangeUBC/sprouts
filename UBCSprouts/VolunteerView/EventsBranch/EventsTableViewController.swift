@@ -20,7 +20,12 @@ class EventsTableViewController: UITableViewController {
     
     private func loadSampleEvents() {
         events.append(Event(called: "Test Event 1", atLocation: "DMP 201", describedAs: "An example event", withID: 000001))
-        events.append(Event(called: "Test Event 2", atLocation: "New restaurant", describedAs: "Another example event", withID: 000002))
+        let v1 = Volunteer(withName: "Alice", withID: 11111, havingWorkedThisTerm: 10.5, havingWorkedInTotal: 10.5)
+        let v2 = Volunteer(withName: "Bob", withID: 22222, havingWorkedThisTerm: 11, havingWorkedInTotal: 15)
+        var testVolunteersList = [Volunteer]()
+        testVolunteersList.append(v1)
+        testVolunteersList.append(v2)
+        events.append(Event(called: "Test Event 2", atLocation: "New restaurant", describedAs: "This one has volunteers", withID: 000002, withVolunteers: testVolunteersList))
     }
 
     override func didReceiveMemoryWarning() {

@@ -54,14 +54,17 @@ class EventDetailsViewController: UIViewController {
         }
         performSegue(withIdentifier: "Save", sender: sender)
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditVolunteers" {
+            guard let destination = segue.destination as? EventVolunteersTableViewController else {
+                fatalError("What am I even doing")
+            }
+            destination.event = event
+        }
     }
-    */
+    
 
 }

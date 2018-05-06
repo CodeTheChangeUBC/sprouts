@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class AddVolunteerViewController: UIViewController, UINavigationBarDelegate{
 
-    
     //MARK: Properties
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -34,7 +34,31 @@ class AddVolunteerViewController: UIViewController, UINavigationBarDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func addVolunteer(_ sender: UIBarButtonItem) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Blame the tutorial, not me!")
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let volunteerEntity = NSEntityDescription.entity(forEntityName: "Volunteer", in: managedContext)!
+        
+        let newVolunteer = NSManagedObject(entity: volunteerEntity, insertInto: managedContext)
+        
+        newVolunteer.setValue(firstNameTextField.text, forKey: "first_name")
+        newVolunteer.setValue(lastNameTextField.text, forKey: "last_name")
+        newVolunteer.setValue(Int(ageTextField.text!), forKey: "age")
+        newVolunteer.setValue(emailTextField.text, forKey: "email")
+        newVolunteer.setValue(phoneNumberTextField.text, forKey: "phone_number")
+        newVolunteer.setValue("Vancouver", forKey: "campus")
+        newVolunteer.setValue(0, forKey: "totalHoursWorked")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            fatalError("AAAAA \(error), \(error.userInfo)")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

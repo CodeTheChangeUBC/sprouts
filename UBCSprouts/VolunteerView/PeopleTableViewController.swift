@@ -8,18 +8,30 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
     
     let searchBar = UISearchBar()
-    let tableData = ["Bill", "Harry", "Jack"]
     
-    var filtArray = [String]()
+    var tableData = [Volunteer]()
+    var filtArray = [Volunteer]()
     var showResults = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBar();
+    }
+    
+    func loadVolunteers() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Blame the tutorial, not me!")
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let volunteerFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Volunteer")
+        
+        tableData = try! managedContext.fetch(volunteerFetchRequest) as! [Volunteer]
     }
     
     func createSearchBar() {
@@ -32,10 +44,6 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
         
     }
     
-    @IBAction func unwindSegueVolunteers(_ sender: UIStoryboardSegue){
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,8 +51,8 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filtArray = tableData.filter({(names: String) -> Bool in
-            return names.lowercased().range(of: searchText.lowercased()) != nil
+        filtArray = tableData.filter({(person: Volunteer) -> Bool in
+            return person.name.lowercased().range(of: searchText.lowercased()) != nil
         })
         
         if (searchText != "") {
@@ -77,10 +85,10 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         
         if(showResults) {
-            cell.textLabel!.text = filtArray[indexPath.row]
+            cell.textLabel!.text = filtArray[indexPath.row].name
             return cell
         } else {
-            cell.textLabel!.text = tableData[indexPath.row]
+            cell.textLabel!.text = tableData[indexPath.row].name
             return cell
         }
         

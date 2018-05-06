@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Admin" representedClassName="AdminMO" parentEntity="Person" syncable="YES" codeGenerationType="class">
         <attribute name="inChargeOf" optional="YES" attributeType="String" syncable="YES"/>
         <fetchedProperty name="recentHires" optional="YES" syncable="YES">
@@ -16,10 +16,9 @@
     <entity name="Person" representedClassName="PersonMO" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="phoneNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="checkFood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" syncable="YES"/>
+        <attribute name="first_name" attributeType="String" syncable="YES"/>
+        <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone_number" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Revenue" representedClassName="RevenueMO" syncable="YES" codeGenerationType="class">
         <attribute name="expense" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -41,9 +40,9 @@
         <element name="Admin" positionX="-236" positionY="9" width="128" height="86"/>
         <element name="Food" positionX="241" positionY="-148" width="128" height="103"/>
         <element name="Inventory" positionX="9" positionY="-333" width="128" height="43"/>
-        <element name="Person" positionX="-137" positionY="-144" width="128" height="133"/>
+        <element name="Person" positionX="-137" positionY="-144" width="128" height="120"/>
         <element name="Revenue" positionX="250" positionY="-331" width="128" height="88"/>
         <element name="Schedule" positionX="-234" positionY="-333" width="128" height="103"/>
-        <element name="Volunteer" positionX="-56" positionY="11" width="128" height="88"/>
+        <element name="Volunteer" positionX="-56" positionY="11" width="128" height="90"/>
     </elements>
 </model>
