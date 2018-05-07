@@ -14,13 +14,14 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
     
     let searchBar = UISearchBar()
     
-    var tableData = [Volunteer]()
-    var filtArray = [Volunteer]()
+    var tableData = [VolunteerMO]()
+    var filtArray = [VolunteerMO]()
     var showResults = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBar();
+        loadVolunteers()
     }
     
     func loadVolunteers() {
@@ -31,7 +32,10 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
         
         let volunteerFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Volunteer")
         
-        tableData = try! managedContext.fetch(volunteerFetchRequest) as! [Volunteer]
+        tableData = try! managedContext.fetch(volunteerFetchRequest) as! [VolunteerMO]
+        
+        print(tableData.count)
+        print(tableData.first?.first_name)
     }
     
     func createSearchBar() {
@@ -51,8 +55,8 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filtArray = tableData.filter({(person: Volunteer) -> Bool in
-            return person.name.lowercased().range(of: searchText.lowercased()) != nil
+        filtArray = tableData.filter({(person: VolunteerMO) -> Bool in
+            return person.first_name?.lowercased().range(of: searchText.lowercased()) != nil
         })
         
         if (searchText != "") {
@@ -85,10 +89,10 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         
         if(showResults) {
-            cell.textLabel!.text = filtArray[indexPath.row].name
+            cell.textLabel!.text = filtArray[indexPath.row].first_name
             return cell
         } else {
-            cell.textLabel!.text = tableData[indexPath.row].name
+            cell.textLabel!.text = tableData[indexPath.row].first_name
             return cell
         }
         

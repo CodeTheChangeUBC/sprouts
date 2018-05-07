@@ -499,7 +499,7 @@
                                     <navigationItem title="Add Volunteer" id="x9g-YZ-Qgr">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eBX-Jk-Iyn">
                                             <connections>
-                                                <segue destination="dOZ-5e-M7D" kind="unwind" unwindAction="unwindSegueVolunteers:" id="r5w-Sa-L8f"/>
+                                                <segue destination="SWE-hY-qLQ" kind="show" identifier="cancel" id="AFX-EE-XFN"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ha1-bX-7Xi">
@@ -616,10 +616,10 @@
                         <outlet property="firstNameTextField" destination="RNA-og-bbd" id="MbC-86-utA"/>
                         <outlet property="lastNameTextField" destination="f5a-gf-31B" id="mLZ-Gj-syx"/>
                         <outlet property="phoneNumberTextField" destination="TPE-MR-9qO" id="Yl4-pp-Icd"/>
+                        <segue destination="SWE-hY-qLQ" kind="show" identifier="save" id="cHG-Ms-gEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGN-8T-WES" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="dOZ-5e-M7D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3767" y="-1010"/>
         </scene>
@@ -1287,6 +1287,7 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="cHG-Ms-gEU"/>
         <segue reference="nDe-Hd-qT7"/>
         <segue reference="lYd-TM-iW0"/>
         <segue reference="r1d-3Z-CLl"/>

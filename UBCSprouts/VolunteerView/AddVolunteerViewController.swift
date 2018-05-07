@@ -35,6 +35,8 @@ class AddVolunteerViewController: UIViewController, UINavigationBarDelegate{
     }
     
     @IBAction func addVolunteer(_ sender: UIBarButtonItem) {
+        print("beginning save")
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("Blame the tutorial, not me!")
         }
@@ -50,6 +52,7 @@ class AddVolunteerViewController: UIViewController, UINavigationBarDelegate{
         newVolunteer.setValue(emailTextField.text, forKey: "email")
         newVolunteer.setValue(phoneNumberTextField.text, forKey: "phone_number")
         newVolunteer.setValue("Vancouver", forKey: "campus")
+        newVolunteer.setValue(Date(), forKey: "dateJoined")
         newVolunteer.setValue(0, forKey: "totalHoursWorked")
         
         do {
@@ -57,6 +60,14 @@ class AddVolunteerViewController: UIViewController, UINavigationBarDelegate{
         } catch let error as NSError {
             fatalError("AAAAA \(error), \(error.userInfo)")
         }
+        
+        let volunteerFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Volunteer")
+        
+        let tableData = try! managedContext.fetch(volunteerFetchRequest) as! [VolunteerMO]
+        
+        print(tableData.count)
+        
+        performSegue(withIdentifier: "save", sender: sender)
     }
     
     /*
