@@ -7,15 +7,30 @@
 //
 
 import UIKit
+import CoreData
 
 class EventAddVolunteersTableViewController: UITableViewController {
     
-    var event: Event!
-    var volunteers: [Volunteer]!
+    var eventData: EventMO!
+    var volunteers: [VolunteerMO]!
+    var makingNewEvent: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadVolunteers()
     }
+    
+    private func loadVolunteers() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Blame the tutorial, not me!")
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let volunteerFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Volunteer")
+        
+        volunteers = try! managedContext.fetch(volunteerFetchRequest) as! [VolunteerMO]
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,13 +47,11 @@ class EventAddVolunteersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventsAddVolunteerCell", for: indexPath) as? EventsAddVolunteerTableViewCell else {
-            fatalError("Note: replace this with some arbitrary error number to look more legit")
-        }
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventAddVolunteersCell", for: indexPath) as UITableViewCell
+        
         let volunteer = volunteers[indexPath.row]
         
-        cell.nameLabel.text = volunteer.name
+        cell.textLabel?.text = volunteer.first_name
 
         return cell
     }
@@ -49,10 +62,25 @@ class EventAddVolunteersTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "Add" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedVolunteer = volunteers[indexPath.row]
+            if (eventData.people?.allObjects.contains(where: {($0 as! VolunteerMO) == selectedVolunteer}))! {
+                let alert = UIAlertController(title: "Volunteer not added", message: "Volunteer is already signed up for this event!", preferredStyle: UIAlertControllerStyle.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                alert.addAction(okButton)
+                present(alert, animated: true, completion: nil)
+            } else {
+                eventData.addToPeople(selectedVolunteer)
+            }
+        }
+        
+        guard let destination = segue.destination as? EventVolunteersTableViewController else {
+            fatalError("What am I even doing")
+        }
+        destination.eventData = eventData
+        destination.makingNewEvent = makingNewEvent
     }
 
 }

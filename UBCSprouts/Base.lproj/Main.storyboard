@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="FUj-bY-FL9">
-                                <rect key="frame" x="16" y="20" width="343" height="582"/>
+                                <rect key="frame" x="16" y="20" width="343" height="631"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rza-yS-94l">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="271"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="295.5"/>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.70196078429999997" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <state key="normal" title="Events">
@@ -33,7 +33,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-eD-Ao0">
-                                        <rect key="frame" x="0.0" y="311" width="343" height="271"/>
+                                        <rect key="frame" x="0.0" y="335.5" width="343" height="295.5"/>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.70196078429999997" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <state key="normal" title="Volunteer">
@@ -76,7 +76,7 @@
                                 <navigationItem title="Events" id="Gdd-Fm-6tx">
                                     <barButtonItem key="leftBarButtonItem" title="Back" id="i7F-89-pge">
                                         <connections>
-                                            <action selector="back:" destination="0b5-fX-mim" id="Zey-BC-3tP"/>
+                                            <segue destination="9pv-A4-QxB" kind="show" identifier="Back" id="WF8-aN-89I"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="PUo-WV-sdJ">
@@ -239,7 +239,7 @@
                                         <rect key="frame" x="0.0" y="256.5" width="375" height="48"/>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.70196078429999997" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Edit Volunteers">
+                                        <state key="normal" title="Edit Sign-up Sheet">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -266,7 +266,6 @@
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="Eqf-it-uPo">
                                             <connections>
                                                 <action selector="saveEvent:" destination="5hI-tv-otQ" id="ZhG-iR-0wb"/>
-                                                <segue destination="0b5-fX-mim" kind="show" identifier="Save" id="r1d-3Z-CLl"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -285,6 +284,7 @@
                         <outlet property="descriptionField" destination="Wcd-Mo-IqX" id="tJJ-qk-5ZB"/>
                         <outlet property="locationField" destination="vSB-Ke-XTx" id="3BO-g2-sMV"/>
                         <outlet property="nameField" destination="Rxe-bj-jHR" id="I6b-np-bHN"/>
+                        <segue destination="0b5-fX-mim" kind="show" identifier="Save" id="KF6-e0-swm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYn-oo-RQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -311,50 +311,29 @@
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="Add" id="ceC-H2-ZS1">
                                         <connections>
-                                            <segue destination="dpO-WY-gia" kind="show" id="BnG-0O-gdP"/>
+                                            <segue destination="dpO-WY-gia" kind="show" identifier="AddVolunteer" id="BnG-0O-gdP"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventVolunteersCell" id="kBg-mn-yP3" customClass="EventsVolunteersTableViewCell" customModule="UBCSprouts" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventVolunteersCell" textLabel="ra5-Vy-LJ3" style="IBUITableViewCellStyleDefault" id="BuO-BT-6hd">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kBg-mn-yP3" id="RyX-8D-rfs">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BuO-BT-6hd" id="ShQ-b6-ghg">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BCd-Tl-bha">
-                                            <rect key="frame" x="16" y="6" width="343" height="31.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volunteer name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxg-zH-Dcz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="31.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6a-6a-uHN">
-                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="31.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="Check out"/>
-                                                    <connections>
-                                                        <action selector="checkOut:" destination="kBg-mn-yP3" eventType="touchUpInside" id="E6L-TN-vPB"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ra5-Vy-LJ3">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="BCd-Tl-bha" firstAttribute="top" secondItem="RyX-8D-rfs" secondAttribute="top" constant="6" id="DwO-bP-NOe"/>
-                                        <constraint firstItem="BCd-Tl-bha" firstAttribute="leading" secondItem="RyX-8D-rfs" secondAttribute="leading" constant="16" id="Wn2-Xb-Tw7"/>
-                                        <constraint firstAttribute="trailing" secondItem="BCd-Tl-bha" secondAttribute="trailing" constant="16" id="a6D-XV-0Se"/>
-                                        <constraint firstAttribute="bottom" secondItem="BCd-Tl-bha" secondAttribute="bottom" constant="6" id="gMJ-YH-cSU"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="nameLabel" destination="Dxg-zH-Dcz" id="tUA-Kf-7Gj"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -385,44 +364,22 @@
                                             <segue destination="H02-fR-VPb" kind="show" identifier="Cancel" id="nDe-Hd-qT7"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" title="Check in" id="eGa-MX-hi0">
+                                    <barButtonItem key="rightBarButtonItem" title="Add" id="eGa-MX-hi0">
                                         <connections>
-                                            <segue destination="H02-fR-VPb" kind="show" identifier="CheckIn" id="aVE-42-eoJ"/>
+                                            <segue destination="H02-fR-VPb" kind="show" identifier="Add" id="Gds-xA-5gI"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventsAddVolunteerCell" id="DAY-Bx-bsr" customClass="EventsAddVolunteerTableViewCell" customModule="UBCSprouts" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventAddVolunteersCell" id="bHB-8z-EL8">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DAY-Bx-bsr" id="Bap-9R-QBT">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bHB-8z-EL8" id="cn3-5i-c3D">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-j2-J2H">
-                                            <rect key="frame" x="16" y="6" width="343" height="31.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volunteer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkq-Tt-WF6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="31.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="h9c-j2-J2H" secondAttribute="trailing" constant="16" id="1UC-RT-huy"/>
-                                        <constraint firstAttribute="bottom" secondItem="h9c-j2-J2H" secondAttribute="bottom" constant="6" id="5nG-uq-ZUh"/>
-                                        <constraint firstItem="h9c-j2-J2H" firstAttribute="top" secondItem="Bap-9R-QBT" secondAttribute="top" constant="6" id="MnJ-l5-ub6"/>
-                                        <constraint firstItem="h9c-j2-J2H" firstAttribute="leading" secondItem="Bap-9R-QBT" secondAttribute="leading" constant="16" id="USL-eV-EaO"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="nameLabel" destination="Vkq-Tt-WF6" id="SlJ-ro-wof"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -460,6 +417,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="WWV-GY-3mR" kind="presentation" identifier="edit" id="yQW-9N-b7h"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -475,7 +435,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hxY-fK-a5P">
                             <connections>
-                                <segue destination="WWV-GY-3mR" kind="presentation" id="b3B-B7-WQK"/>
+                                <segue destination="WWV-GY-3mR" kind="presentation" identifier="new" id="b3B-B7-WQK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -496,7 +456,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89x-9F-NhT">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Add Volunteer" id="x9g-YZ-Qgr">
+                                    <navigationItem title="Add/Edit Volunteer" id="x9g-YZ-Qgr">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eBX-Jk-Iyn">
                                             <connections>
                                                 <segue destination="SWE-hY-qLQ" kind="show" identifier="cancel" id="AFX-EE-XFN"/>
@@ -610,7 +570,6 @@
                         <viewLayoutGuide key="safeArea" id="aRz-9E-vPE"/>
                     </view>
                     <connections>
-                        <outlet property="addVolunteerNavigationBar" destination="89x-9F-NhT" id="VPF-3X-bS9"/>
                         <outlet property="ageTextField" destination="iEc-0E-msE" id="zey-Qk-vHz"/>
                         <outlet property="emailTextField" destination="rOl-FL-i9u" id="zxP-dy-LAz"/>
                         <outlet property="firstNameTextField" destination="RNA-og-bbd" id="MbC-86-utA"/>
@@ -752,14 +711,14 @@
                                                     <rect key="frame" x="0.0" y="27.5" width="343" height="20"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-MG-4t1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="248" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="20"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Dtd-Vi-1Vr"/>
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7Q-AC-sZu">
-                                                            <rect key="frame" x="268" y="0.0" width="75" height="20"/>
+                                                            <rect key="frame" x="276" y="0.0" width="67" height="20"/>
                                                             <color key="backgroundColor" red="0.21176470589999999" green="0.70196078429999997" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" priority="500" constant="75" id="FUC-a5-yFt"/>
@@ -892,7 +851,7 @@
                                 <action selector="cancel:" destination="6vJ-cg-GZN" id="d3c-hi-kln"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="XDi-uy-SOp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XDi-uy-SOp"/>
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientMaxTextField" destination="GhC-t3-lOc" id="DAn-Vd-X0w"/>
@@ -1217,6 +1176,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0g-E4-THP">
                                                 <rect key="frame" x="157.5" y="0.0" width="137.5" height="30"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                 <state key="normal" title="Member"/>
                                                 <connections>
                                                     <segue destination="qM3-AN-Mgi" kind="show" id="y5c-WI-6MV"/>
@@ -1242,7 +1202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfz-Os-ROD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1015.2" y="-14.842578710644679"/>
+            <point key="canvasLocation" x="-1084" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1288,8 +1248,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cHG-Ms-gEU"/>
-        <segue reference="nDe-Hd-qT7"/>
+        <segue reference="yQW-9N-b7h"/>
+        <segue reference="AR3-bQ-Jcq"/>
         <segue reference="lYd-TM-iW0"/>
-        <segue reference="r1d-3Z-CLl"/>
+        <segue reference="1dg-xt-VeP"/>
+        <segue reference="WF8-aN-89I"/>
     </inferredMetricsTieBreakers>
 </document>

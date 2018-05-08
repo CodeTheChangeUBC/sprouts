@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class EventDetailsViewController: UIViewController {
     
-    var event: Event!
+    var eventData: EventMO!
     var makingNewEvent: Bool!
 
     @IBOutlet weak var nameField: UITextField!
@@ -20,20 +21,18 @@ class EventDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if event == nil {
-            event = Event(called: "", atLocation: "", describedAs: "", withID: getNextEventId())
+        if eventData == nil {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let eventEntity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
+            eventData = NSManagedObject(entity: eventEntity, insertInto: managedContext) as! EventMO
             makingNewEvent = true
         } else {
-            nameField.text = event.name
-            locationField.text = event.location
-            descriptionField.text = event.description
+            nameField.text = eventData.name
+            locationField.text = eventData.location
+            descriptionField.text = eventData.event_description
             makingNewEvent = false
         }
-    }
-    
-    // replace with backend call later
-    private func getNextEventId() -> Int {
-        return 3
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,17 +40,20 @@ class EventDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     //replace with backend call later
     @IBAction func saveEvent(_ sender: Any) {
-        if makingNewEvent {
-            // store new event in db
-        } else {
-            // update db
+        eventData.setValue(nameField.text, forKey: "name")
+        eventData.setValue(locationField.text, forKey: "location")
+        eventData.setValue(descriptionField.text, forKey: "event_description")
+        
+        do {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            try managedContext.save()
+        } catch let error as NSError {
+            fatalError("\(error), \(error.userInfo)")
         }
+        
         performSegue(withIdentifier: "Save", sender: sender)
     }
     
@@ -59,12 +61,19 @@ class EventDetailsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditVolunteers" {
+            eventData.setValue(nameField.text, forKey: "name")
+            eventData.setValue(locationField.text, forKey: "location")
+            eventData.setValue(descriptionField.text, forKey: "event_description")
+            
             guard let destination = segue.destination as? EventVolunteersTableViewController else {
                 fatalError("What am I even doing")
             }
-            destination.event = event
+            destination.eventData = eventData
+            destination.makingNewEvent = makingNewEvent
+        } else if segue.identifier == "Back" {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            managedContext.rollback()
         }
     }
-    
-
 }
