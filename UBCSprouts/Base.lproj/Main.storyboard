@@ -252,6 +252,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="59F-jt-7bn" id="7W5-wP-qXQ"/>
                                     <outlet property="quantityLabel" destination="Tys-df-4DJ" id="pQm-Xf-wt4"/>
+                                    <segue destination="K9K-ir-zks" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="liN-Jo-DmU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -262,8 +263,9 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUK-aD-j1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="K9K-ir-zks" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1757.5999999999999" y="345.87706146926541"/>
+            <point key="canvasLocation" x="1722" y="695"/>
         </scene>
         <!--New Ingredient-->
         <scene sceneID="Iog-zi-yXb">
@@ -370,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMt-2L-sfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3287.1999999999998" y="660.71964017991013"/>
+            <point key="canvasLocation" x="3425" y="804"/>
         </scene>
         <!--Meals-->
         <scene sceneID="chp-FX-cDy">
@@ -520,7 +522,9 @@
                                 <state key="normal" title="Add New Ingredient"/>
                                 <connections>
                                     <action selector="addNewIngredient:" destination="o17-hy-5Yy" eventType="touchUpInside" id="qhZ-b2-uKE"/>
-                                    <segue destination="LZQ-R5-oLD" kind="presentation" id="Z6d-HQ-EzV"/>
+                                    <segue destination="LZQ-R5-oLD" kind="popoverPresentation" identifier="addingredient" popoverAnchorView="cxQ-0S-BEh" id="wOa-G5-jVP">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -532,12 +536,14 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="VBG-dU-wgD"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addingredientButton" destination="cxQ-0S-BEh" id="8Kf-lO-avM"/>
+                        <outlet property="ingredientList" destination="OYy-uA-dnL" id="GZa-lt-ox1"/>
                         <outlet property="mealNameTextField" destination="CLg-xY-QVI" id="R3O-kU-gGF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgb-zu-QVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4021.5999999999999" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="4500" y="-15"/>
         </scene>
         <!--Documents-->
         <scene sceneID="kef-7s-Xq3">
@@ -764,6 +770,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Z6d-HQ-EzV"/>
+        <segue reference="wOa-G5-jVP"/>
     </inferredMetricsTieBreakers>
 </document>
