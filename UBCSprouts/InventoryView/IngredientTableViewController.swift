@@ -17,6 +17,7 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
     }
     
     private var records = [IngredientStock]()
+    var pickedIngredient: IngredientStock?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,14 +78,19 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
         return false
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+     if segue.identifier == "pickedIngredient" {
+     let cell = sender as! IngredientTableViewCell
+     let index = tableView.indexPath(for: cell)
+     if let indexPath = index?.row {
+     pickedIngredient = records[indexPath]
+     }
+        }
     }
-    */
+    
 
 }

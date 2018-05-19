@@ -168,8 +168,8 @@
 				A0B0AE362060A197001D2555 /* UBCSprouts.xcdatamodeld */,
 				84032C162038AA4300D11F57 /* VolunteerView */,
 				84032C152038AA3B00D11F57 /* InventoryView */,
-				84502D972038A4770029B322 /* Main.storyboard */,
 				84502D9A2038A4770029B322 /* Assets.xcassets */,
+				84502D972038A4770029B322 /* Main.storyboard */,
 				84502D9C2038A4770029B322 /* LaunchScreen.storyboard */,
 				84502D9F2038A4770029B322 /* Info.plist */,
 			);

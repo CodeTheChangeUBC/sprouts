@@ -27,6 +27,7 @@ class IngredientTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
     
     func setIndex(as newInt: Int) {
         index = newInt

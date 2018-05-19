@@ -172,6 +172,7 @@
                                     <barButtonItem key="leftBarButtonItem" title="Back" id="1Kx-bf-A1j">
                                         <connections>
                                             <action selector="back:" destination="LZQ-R5-oLD" id="ytQ-jP-MZf"/>
+                                            <segue destination="K9K-ir-zks" kind="unwind" identifier="pickedIngredient" unwindAction="selectedIngredientWithUnwindSegue:" id="8FN-pz-cdk"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ld9-Pv-blY">
@@ -252,7 +253,6 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="59F-jt-7bn" id="7W5-wP-qXQ"/>
                                     <outlet property="quantityLabel" destination="Tys-df-4DJ" id="pQm-Xf-wt4"/>
-                                    <segue destination="K9K-ir-zks" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="liN-Jo-DmU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -509,7 +509,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d7N-wy-0LD">
                                         <rect key="frame" x="0.0" y="28" width="340" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d7N-wy-0LD" id="6J9-AS-sb9">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d7N-wy-0LD" id="6J9-AS-sb9" customClass="IngredientTableViewCell" customModule="UBCSprouts" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="340" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
