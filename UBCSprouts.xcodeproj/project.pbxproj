@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45C723642056EBF2005C1016 /* IngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C723632056EBF2005C1016 /* IngredientViewController.swift */; };
+		637020C320D067F0008DD18E /* VolunteerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637020C220D067F0008DD18E /* VolunteerDetailsViewController.swift */; };
 		63EBE5FF20649A9E0011008B /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */; };
 		63EBE6052069C81A0011008B /* AddVolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */; };
 		84032C1A2038B14300D11F57 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C192038B14300D11F57 /* Meal.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		45C723632056EBF2005C1016 /* IngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewController.swift; sourceTree = "<group>"; };
+		637020C220D067F0008DD18E /* VolunteerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDetailsViewController.swift; sourceTree = "<group>"; };
 		63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVolunteerViewController.swift; sourceTree = "<group>"; };
 		84032C192038B14300D11F57 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		84032C162038AA4300D11F57 /* VolunteerView */ = {
 			isa = PBXGroup;
 			children = (
+				637020C220D067F0008DD18E /* VolunteerDetailsViewController.swift */,
 				84502D932038A4770029B322 /* VolunteerViewController.swift */,
 				84BA152D204889B400CCAFDC /* Event.swift */,
 				84BA152F20488BD000CCAFDC /* Volunteer.swift */,
@@ -180,14 +183,12 @@
 		84502D902038A4770029B322 /* UBCSprouts */ = {
 			isa = PBXGroup;
 			children = (
-				84032C152038AA3B00D11F57 /* InventoryView */,
 				8454197D20642C5700F86497 /* UserViewController */,
 				84C90275205767C900774B26 /* SignInView */,
 				84032C182038AA5400D11F57 /* SettingsView */,
 				84032C172038AA4A00D11F57 /* DocumentsView */,
 				84502D912038A4770029B322 /* AppDelegate.swift */,
 				A09362CB2069C666008B616A /* DataController.swift */,
-				A0B0AE362060A197001D2555 /* UBCSprouts.xcdatamodeld */,
 				84032C162038AA4300D11F57 /* VolunteerView */,
 				84502D972038A4770029B322 /* Main.storyboard */,
 				84032C152038AA3B00D11F57 /* InventoryView */,
@@ -328,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84032C282038E70400D11F57 /* PendingMeal.swift in Sources */,
+				637020C320D067F0008DD18E /* VolunteerDetailsViewController.swift in Sources */,
 				8454197F20642C8C00F86497 /* UserViewController.swift in Sources */,
 				45C723642056EBF2005C1016 /* IngredientViewController.swift in Sources */,
 				84032C222038C25400D11F57 /* IngredientTableViewCell.swift in Sources */,

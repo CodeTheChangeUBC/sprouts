@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4xg-12-lwj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4xg-12-lwj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -151,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xg0-u1-o6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="-1764"/>
+            <point key="canvasLocation" x="1633" y="-2373"/>
         </scene>
         <!--Event Details-->
         <scene sceneID="ack-il-g9A">
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYn-oo-RQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2554" y="-1764"/>
+            <point key="canvasLocation" x="2593" y="-2373"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="mSV-HL-oKk">
@@ -336,7 +336,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXv-4j-963" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3314" y="-1764"/>
+            <point key="canvasLocation" x="3614" y="-2373"/>
         </scene>
         <!--Volunteer Search or Add Scene-->
         <scene sceneID="XhS-Ow-P8h">
@@ -355,7 +355,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eaS-OD-aqf">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -382,11 +382,89 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="oLo-m4-bHi" kind="show" identifier="volunteerDetailSegue" id="Ns2-Th-Vyx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1q-Rl-bIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Nyy-NU-9xb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3053" y="-1518"/>
+        </scene>
+        <!--Volunteer Details View Controller-->
+        <scene sceneID="Y4h-QJ-1dn">
+            <objects>
+                <viewController id="oLo-m4-bHi" customClass="VolunteerDetailsViewController" customModule="UBCSprouts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pvk-1c-4hX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Lu5-J7-ETp">
+                                <rect key="frame" x="16" y="78" width="335" height="122.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oI-OW-Kvo">
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMv-9I-9ZP">
+                                        <rect key="frame" x="0.0" y="25.5" width="135" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMD-vv-wAB">
+                                        <rect key="frame" x="0.0" y="51" width="30" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sq-6D-6yJ">
+                                        <rect key="frame" x="0.0" y="76.5" width="41" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgg-AC-Nv2">
+                                        <rect key="frame" x="0.0" y="102" width="115" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="9oI-OW-Kvo" secondAttribute="trailing" constant="200" id="2iB-LG-n76"/>
+                                    <constraint firstItem="5sq-6D-6yJ" firstAttribute="leading" secondItem="Lu5-J7-ETp" secondAttribute="leading" constant="5" id="8Ns-h5-GMg"/>
+                                    <constraint firstItem="Mgg-AC-Nv2" firstAttribute="leading" secondItem="Lu5-J7-ETp" secondAttribute="leadingMargin" constant="5" id="Eha-TM-Zjv"/>
+                                    <constraint firstItem="9oI-OW-Kvo" firstAttribute="leading" secondItem="Lu5-J7-ETp" secondAttribute="leadingMargin" constant="5" id="Gbs-c1-va3"/>
+                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="DMD-vv-wAB" secondAttribute="trailing" constant="280" id="LSG-1Y-61s"/>
+                                    <constraint firstItem="ZMv-9I-9ZP" firstAttribute="leading" secondItem="Lu5-J7-ETp" secondAttribute="leadingMargin" constant="5" id="MBr-ag-g3X"/>
+                                    <constraint firstItem="9oI-OW-Kvo" firstAttribute="top" secondItem="Lu5-J7-ETp" secondAttribute="topMargin" constant="5" id="RJY-WF-1Wf"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="ZMv-9I-9ZP" secondAttribute="trailing" constant="200" id="TCh-ia-N1c"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5sq-6D-6yJ" secondAttribute="trailing" constant="280" id="Vwr-a8-Qff"/>
+                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Mgg-AC-Nv2" secondAttribute="trailing" constant="220" id="eIv-m9-oI3"/>
+                                    <constraint firstItem="DMD-vv-wAB" firstAttribute="leading" secondItem="Lu5-J7-ETp" secondAttribute="leadingMargin" constant="6" id="p5p-vP-d5N"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lu5-J7-ETp" firstAttribute="top" secondItem="Lql-Tr-Uot" secondAttribute="top" constant="14" id="W5B-C7-6ZN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lql-Tr-Uot"/>
+                    </view>
+                    <connections>
+                        <outlet property="ageLabel" destination="DMD-vv-wAB" id="Xib-ix-TIF"/>
+                        <outlet property="emailLabel" destination="5sq-6D-6yJ" id="BLT-TU-bXa"/>
+                        <outlet property="firstNameLabel" destination="9oI-OW-Kvo" id="ldh-wM-dDD"/>
+                        <outlet property="lastNameLabel" destination="ZMv-9I-9ZP" id="XtR-s2-mne"/>
+                        <outlet property="phoneNumberLabel" destination="Mgg-AC-Nv2" id="0tu-BR-2iI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EDM-N3-Ljr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4009" y="-1621"/>
         </scene>
         <!--Add Volunteer View Controller-->
         <scene sceneID="KX3-3e-LqA">
@@ -533,7 +611,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGN-8T-WES" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dOZ-5e-M7D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3869.5999999999999" y="-1519.7901049475263"/>
+            <point key="canvasLocation" x="4087" y="-920"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c6f-EX-Wfo">
