@@ -33,11 +33,10 @@
 		84502DB42038A5D50029B322 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DB32038A5D50029B322 /* DocumentsViewController.swift */; };
 		84502DB62038A9420029B322 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DB52038A9420029B322 /* SettingsViewController.swift */; };
 		8454197F20642C8C00F86497 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454197E20642C8C00F86497 /* UserViewController.swift */; };
-		847BC8282048F19E00E6D588 /* VolunteerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BC8272048F19E00E6D588 /* VolunteerRecord.swift */; };
 		84AF3BC32069DA5900BE33F5 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AF3BC22069DA5900BE33F5 /* EventDetailsViewController.swift */; };
-		84BA152E204889B400CCAFDC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA152D204889B400CCAFDC /* Event.swift */; };
-		84BA153020488BD000CCAFDC /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA152F20488BD000CCAFDC /* Volunteer.swift */; };
 		84C902772057684000774B26 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C902762057684000774B26 /* SignInViewController.swift */; };
+		84F214D1209A931E00FC1EBF /* EventVolunteersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F214D0209A931E00FC1EBF /* EventVolunteersTableViewController.swift */; };
+		84F214D3209A933000FC1EBF /* EventAddVolunteersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F214D2209A933000FC1EBF /* EventAddVolunteersTableViewController.swift */; };
 		A09362CC2069C666008B616A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09362CB2069C666008B616A /* DataController.swift */; };
 		A0B0AE382060A197001D2555 /* UBCSprouts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0B0AE362060A197001D2555 /* UBCSprouts.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -83,11 +82,10 @@
 		84502DB32038A5D50029B322 /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
 		84502DB52038A9420029B322 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8454197E20642C8C00F86497 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		847BC8272048F19E00E6D588 /* VolunteerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerRecord.swift; sourceTree = "<group>"; };
 		84AF3BC22069DA5900BE33F5 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
-		84BA152D204889B400CCAFDC /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		84BA152F20488BD000CCAFDC /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer.swift; sourceTree = "<group>"; };
 		84C902762057684000774B26 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		84F214D0209A931E00FC1EBF /* EventVolunteersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVolunteersTableViewController.swift; sourceTree = "<group>"; };
+		84F214D2209A933000FC1EBF /* EventAddVolunteersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAddVolunteersTableViewController.swift; sourceTree = "<group>"; };
 		A09362CB2069C666008B616A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A0B0AE372060A197001D2555 /* UBCSprouts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UBCSprouts.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,14 +132,8 @@
 			children = (
 				637020C220D067F0008DD18E /* VolunteerDetailsViewController.swift */,
 				84502D932038A4770029B322 /* VolunteerViewController.swift */,
-				84BA152D204889B400CCAFDC /* Event.swift */,
-				84BA152F20488BD000CCAFDC /* Volunteer.swift */,
-				63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */,
-				847BC8272048F19E00E6D588 /* VolunteerRecord.swift */,
-				63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */,
-				843DA61F2064945600CED6A9 /* EventsTableViewController.swift */,
-				84AF3BC22069DA5900BE33F5 /* EventDetailsViewController.swift */,
-				843DA6212064946700CED6A9 /* EventsTableViewCell.swift */,
+				841A710520A185D4009CC9CF /* PeopleBranch */,
+				84F214CF209A8FC700FC1EBF /* EventsBranch */,
 			);
 			path = VolunteerView;
 			sourceTree = "<group>";
@@ -160,6 +152,15 @@
 				84502DB52038A9420029B322 /* SettingsViewController.swift */,
 			);
 			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		841A710520A185D4009CC9CF /* PeopleBranch */ = {
+			isa = PBXGroup;
+			children = (
+				63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */,
+				63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */,
+			);
+			path = PeopleBranch;
 			sourceTree = "<group>";
 		};
 		84502D852038A4770029B322 = {
@@ -225,6 +226,18 @@
 			path = SignInView;
 			sourceTree = "<group>";
 		};
+		84F214CF209A8FC700FC1EBF /* EventsBranch */ = {
+			isa = PBXGroup;
+			children = (
+				843DA61F2064945600CED6A9 /* EventsTableViewController.swift */,
+				843DA6212064946700CED6A9 /* EventsTableViewCell.swift */,
+				84AF3BC22069DA5900BE33F5 /* EventDetailsViewController.swift */,
+				84F214D0209A931E00FC1EBF /* EventVolunteersTableViewController.swift */,
+				84F214D2209A933000FC1EBF /* EventAddVolunteersTableViewController.swift */,
+			);
+			path = EventsBranch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,7 +283,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Justin Zheng";
 				TargetAttributes = {
 					84502D8D2038A4770029B322 = {
@@ -337,15 +350,13 @@
 				84032C242038CD8500D11F57 /* MealTableViewCell.swift in Sources */,
 				84502D962038A4770029B322 /* InventoryViewController.swift in Sources */,
 				84502DB42038A5D50029B322 /* DocumentsViewController.swift in Sources */,
+				84F214D3209A933000FC1EBF /* EventAddVolunteersTableViewController.swift in Sources */,
 				84032C302038EA2000D11F57 /* PendingMealTableViewController.swift in Sources */,
-				84BA153020488BD000CCAFDC /* Volunteer.swift in Sources */,
-				847BC8282048F19E00E6D588 /* VolunteerRecord.swift in Sources */,
 				84AF3BC32069DA5900BE33F5 /* EventDetailsViewController.swift in Sources */,
 				84032C1C2038B20600D11F57 /* Ingredient.swift in Sources */,
 				843DA6202064945600CED6A9 /* EventsTableViewController.swift in Sources */,
 				84C902772057684000774B26 /* SignInViewController.swift in Sources */,
 				84502D922038A4770029B322 /* AppDelegate.swift in Sources */,
-				84BA152E204889B400CCAFDC /* Event.swift in Sources */,
 				63EBE6052069C81A0011008B /* AddVolunteerViewController.swift in Sources */,
 				84502DB62038A9420029B322 /* SettingsViewController.swift in Sources */,
 				63EBE5FF20649A9E0011008B /* PeopleTableViewController.swift in Sources */,
@@ -412,6 +423,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -419,6 +431,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -469,6 +482,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -476,6 +490,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

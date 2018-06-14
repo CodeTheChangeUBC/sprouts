@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import CoreData
 
 class EventsTableViewController: UITableViewController {
     
-    var events = [Event]()
+    var tableData = [EventMO]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadSampleEvents()
+        loadEvents()
     }
     
-    private func loadSampleEvents() {
-        events.append(Event(called: "Test Event 1", atLocation: "DMP 201", describedAs: "An example event", withID: 000001))
-        events.append(Event(called: "Test Event 2", atLocation: "New restaurant", describedAs: "Another example event", withID: 000002))
+    private func loadEvents() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let eventFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+        tableData = try! managedContext.fetch(eventFetchRequest) as! [EventMO]
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,20 +37,19 @@ class EventsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return tableData.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell", for: indexPath) as? EventsTableViewCell else {
             fatalError("I give up")
         }
 
-        let event = events[indexPath.row]
+        let event = tableData[indexPath.row]
         
         cell.nameLabel.text = event.name
         cell.locationLabel.text = event.location
-        cell.descriptionLabel.text = event.description
+        cell.descriptionLabel.text = event.event_description
 
         return cell
     }
@@ -57,25 +58,27 @@ class EventsTableViewController: UITableViewController {
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
     
-
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    @IBAction func back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                fatalError("Blame the tutorial, not me!")
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            managedContext.delete(tableData[indexPath.row])
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                fatalError("AAAAA \(error), \(error.userInfo)")
+            }
+            
+            loadEvents()
+            tableView.reloadData()
+        }
     }
     
     /*
@@ -108,8 +111,8 @@ class EventsTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: selectedCell) else {
                 fatalError("selectedEvent not in table")
             }
-            let selectedEvent = events[indexPath.row]
-            destination.event = selectedEvent
+            let selectedEvent = tableData[indexPath.row]
+            destination.eventData = selectedEvent
         }
     }
 

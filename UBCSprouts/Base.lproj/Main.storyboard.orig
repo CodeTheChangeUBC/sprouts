@@ -804,7 +804,7 @@
                                 <action selector="cancel:" destination="6vJ-cg-GZN" id="d3c-hi-kln"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="XDi-uy-SOp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XDi-uy-SOp"/>
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientMaxTextField" destination="GhC-t3-lOc" id="DAn-Vd-X0w"/>

@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Admin" representedClassName="AdminMO" parentEntity="Person" syncable="YES" codeGenerationType="class">
         <attribute name="inChargeOf" optional="YES" attributeType="String" syncable="YES"/>
         <fetchedProperty name="recentHires" optional="YES" syncable="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="Admin"/>
         </fetchedProperty>
+    </entity>
+    <entity name="Event" representedClassName="EventMO" syncable="YES" codeGenerationType="class">
+        <attribute name="event_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="events_signed_up_for" inverseEntity="Person" syncable="YES"/>
+        <relationship name="shifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Shift" inverseName="event" inverseEntity="Shift" syncable="YES"/>
     </entity>
     <entity name="Food" representedClassName="FoodMO" syncable="YES" codeGenerationType="class">
         <attribute name="inStock" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -16,34 +23,37 @@
     <entity name="Person" representedClassName="PersonMO" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="phoneNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="checkFood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" syncable="YES"/>
+        <attribute name="first_name" attributeType="String" syncable="YES"/>
+        <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone_number" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events_signed_up_for" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="people" inverseEntity="Event" syncable="YES"/>
+        <relationship name="shifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Shift" inverseName="person" inverseEntity="Shift" syncable="YES"/>
     </entity>
     <entity name="Revenue" representedClassName="RevenueMO" syncable="YES" codeGenerationType="class">
         <attribute name="expense" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="profit" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sales" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Schedule" representedClassName="ScheduleMO" syncable="YES" codeGenerationType="class">
-        <attribute name="day" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="hours" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="month" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="Shift" representedClassName="ShiftMO" syncable="YES" codeGenerationType="class">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="shift_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="shifts" inverseEntity="Event" syncable="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="shifts" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Volunteer" representedClassName="VolunteerMO" parentEntity="Person" syncable="YES" codeGenerationType="class">
-        <attribute name="campus" optional="YES" attributeType="String" minValueString="3" maxValueString="3" defaultValueString="UBC" syncable="YES"/>
+        <attribute name="campus" optional="YES" attributeType="String" defaultValueString="UBC" syncable="YES"/>
         <attribute name="dateJoined" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="totalHoursWorked" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="Admin" positionX="-236" positionY="9" width="128" height="86"/>
+        <element name="Event" positionX="54" positionY="-279" width="128" height="118"/>
         <element name="Food" positionX="241" positionY="-148" width="128" height="103"/>
         <element name="Inventory" positionX="9" positionY="-333" width="128" height="43"/>
-        <element name="Person" positionX="-137" positionY="-144" width="128" height="133"/>
+        <element name="Person" positionX="-137" positionY="-144" width="128" height="150"/>
         <element name="Revenue" positionX="250" positionY="-331" width="128" height="88"/>
-        <element name="Schedule" positionX="-234" positionY="-333" width="128" height="103"/>
-        <element name="Volunteer" positionX="-56" positionY="11" width="128" height="88"/>
+        <element name="Shift" positionX="-234" positionY="-333" width="128" height="133"/>
+        <element name="Volunteer" positionX="-56" positionY="11" width="128" height="75"/>
     </elements>
 </model>
