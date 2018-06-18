@@ -83,13 +83,7 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     if segue.identifier == "pickedIngredient" {
-     let cell = sender as! IngredientTableViewCell
-     let index = tableView.indexPath(for: cell)
-     if let indexPath = index?.row {
-     pickedIngredient = records[indexPath]
-     }
-        }
+
     }
     
 

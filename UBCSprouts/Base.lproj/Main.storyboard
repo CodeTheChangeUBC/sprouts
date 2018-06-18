@@ -521,8 +521,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add New Ingredient"/>
                                 <connections>
-                                    <action selector="addNewIngredient:" destination="o17-hy-5Yy" eventType="touchUpInside" id="qhZ-b2-uKE"/>
-                                    <segue destination="LZQ-R5-oLD" kind="popoverPresentation" identifier="addingredient" popoverAnchorView="cxQ-0S-BEh" id="wOa-G5-jVP">
+                                    <action selector="addIngredient:" destination="o17-hy-5Yy" eventType="touchUpInside" id="LRA-pN-QjV"/>
+                                    <segue destination="LZQ-R5-oLD" kind="popoverPresentation" identifier="addingredient" popoverAnchorView="cxQ-0S-BEh" id="jsU-gi-8d4">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -770,6 +770,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wOa-G5-jVP"/>
+        <segue reference="jsU-gi-8d4"/>
     </inferredMetricsTieBreakers>
 </document>
