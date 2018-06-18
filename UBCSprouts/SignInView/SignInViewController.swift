@@ -13,6 +13,31 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passField: UITextField!
     
+    @IBAction func adminLogin(_ sender: UIButton) {
+        tryLogIn(asAdmin: true)
+    }
+    
+    @IBAction func memberLogin(_ sender: UIButton) {
+        tryLogIn(asAdmin: false)
+    }
+    
+    private func tryLogIn(asAdmin isAdmin: Bool) {
+        if (checkInfo(withUsername: userField.text ?? "", withPassword: passField.text ?? "", asAdmin: isAdmin)) {
+            if isAdmin {
+                UserDefaults.standard.set("admin", forKey: "login")
+            }
+            else {
+                UserDefaults.standard.set("member", forKey: "login")
+            }
+            performSegue(withIdentifier: "login", sender: self)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Login credentials invalid", preferredStyle: UIAlertControllerStyle.alert)
+            let okButton = UIAlertAction(title: "dismiss", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(okButton)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,15 +48,19 @@ class SignInViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let status = UserDefaults.standard.object(forKey: "login")
+        if (status != nil) {
+            performSegue(withIdentifier: "login", sender: self)
+        }
     }
-    */
+
+    // TODO: implement properly
+    // returns true if login info valid, false otherwise
+    private func checkInfo(withUsername username: String, withPassword password: String, asAdmin isAdmin: Bool) -> Bool {
+        return true
+    }
 
 }

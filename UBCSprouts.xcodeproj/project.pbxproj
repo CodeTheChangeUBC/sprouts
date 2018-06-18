@@ -31,11 +31,11 @@
 		84502D9E2038A4770029B322 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84502D9C2038A4770029B322 /* LaunchScreen.storyboard */; };
 		84502DA92038A4770029B322 /* UBCSproutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DA82038A4770029B322 /* UBCSproutsTests.swift */; };
 		84502DB42038A5D50029B322 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DB32038A5D50029B322 /* DocumentsViewController.swift */; };
-		84502DB62038A9420029B322 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DB52038A9420029B322 /* SettingsViewController.swift */; };
+		84502DB62038A9420029B322 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502DB52038A9420029B322 /* CheckInViewController.swift */; };
 		8454197F20642C8C00F86497 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454197E20642C8C00F86497 /* UserViewController.swift */; };
 		84AF3BC32069DA5900BE33F5 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AF3BC22069DA5900BE33F5 /* EventDetailsViewController.swift */; };
+		84C41BCA20D30E86003E29A9 /* EventVolunteersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F214D0209A931E00FC1EBF /* EventVolunteersTableViewController.swift */; };
 		84C902772057684000774B26 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C902762057684000774B26 /* SignInViewController.swift */; };
-		84F214D1209A931E00FC1EBF /* EventVolunteersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F214D0209A931E00FC1EBF /* EventVolunteersTableViewController.swift */; };
 		84F214D3209A933000FC1EBF /* EventAddVolunteersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F214D2209A933000FC1EBF /* EventAddVolunteersTableViewController.swift */; };
 		A09362CC2069C666008B616A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09362CB2069C666008B616A /* DataController.swift */; };
 		A0B0AE382060A197001D2555 /* UBCSprouts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0B0AE362060A197001D2555 /* UBCSprouts.xcdatamodeld */; };
@@ -80,7 +80,7 @@
 		84502DA82038A4770029B322 /* UBCSproutsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBCSproutsTests.swift; sourceTree = "<group>"; };
 		84502DAA2038A4770029B322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84502DB32038A5D50029B322 /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
-		84502DB52038A9420029B322 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		84502DB52038A9420029B322 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		8454197E20642C8C00F86497 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		84AF3BC22069DA5900BE33F5 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		84C902762057684000774B26 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +130,6 @@
 		84032C162038AA4300D11F57 /* VolunteerView */ = {
 			isa = PBXGroup;
 			children = (
-				637020C220D067F0008DD18E /* VolunteerDetailsViewController.swift */,
 				84502D932038A4770029B322 /* VolunteerViewController.swift */,
 				841A710520A185D4009CC9CF /* PeopleBranch */,
 				84F214CF209A8FC700FC1EBF /* EventsBranch */,
@@ -146,12 +145,12 @@
 			path = DocumentsView;
 			sourceTree = "<group>";
 		};
-		84032C182038AA5400D11F57 /* SettingsView */ = {
+		84032C182038AA5400D11F57 /* CheckInView */ = {
 			isa = PBXGroup;
 			children = (
-				84502DB52038A9420029B322 /* SettingsViewController.swift */,
+				84502DB52038A9420029B322 /* CheckInViewController.swift */,
 			);
-			path = SettingsView;
+			path = CheckInView;
 			sourceTree = "<group>";
 		};
 		841A710520A185D4009CC9CF /* PeopleBranch */ = {
@@ -159,6 +158,7 @@
 			children = (
 				63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */,
 				63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */,
+				637020C220D067F0008DD18E /* VolunteerDetailsViewController.swift */,
 			);
 			path = PeopleBranch;
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			children = (
 				8454197D20642C5700F86497 /* UserViewController */,
 				84C90275205767C900774B26 /* SignInView */,
-				84032C182038AA5400D11F57 /* SettingsView */,
+				84032C182038AA5400D11F57 /* CheckInView */,
 				84032C172038AA4A00D11F57 /* DocumentsView */,
 				84502D912038A4770029B322 /* AppDelegate.swift */,
 				A09362CB2069C666008B616A /* DataController.swift */,
@@ -348,6 +348,7 @@
 				84032C222038C25400D11F57 /* IngredientTableViewCell.swift in Sources */,
 				843DA6222064946700CED6A9 /* EventsTableViewCell.swift in Sources */,
 				84032C242038CD8500D11F57 /* MealTableViewCell.swift in Sources */,
+				84C41BCA20D30E86003E29A9 /* EventVolunteersTableViewController.swift in Sources */,
 				84502D962038A4770029B322 /* InventoryViewController.swift in Sources */,
 				84502DB42038A5D50029B322 /* DocumentsViewController.swift in Sources */,
 				84F214D3209A933000FC1EBF /* EventAddVolunteersTableViewController.swift in Sources */,
@@ -358,7 +359,7 @@
 				84C902772057684000774B26 /* SignInViewController.swift in Sources */,
 				84502D922038A4770029B322 /* AppDelegate.swift in Sources */,
 				63EBE6052069C81A0011008B /* AddVolunteerViewController.swift in Sources */,
-				84502DB62038A9420029B322 /* SettingsViewController.swift in Sources */,
+				84502DB62038A9420029B322 /* CheckInViewController.swift in Sources */,
 				63EBE5FF20649A9E0011008B /* PeopleTableViewController.swift in Sources */,
 				84032C1A2038B14300D11F57 /* Meal.swift in Sources */,
 				84032C1E2038BEE900D11F57 /* IngredientTableViewController.swift in Sources */,

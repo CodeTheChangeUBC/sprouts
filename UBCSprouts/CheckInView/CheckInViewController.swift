@@ -8,8 +8,13 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class CheckInViewController: UIViewController {
 
+    @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "login")
+        performSegue(withIdentifier: "logout", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
