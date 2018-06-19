@@ -34,9 +34,9 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
     
     // TODO: load actual ingredients
     private func loadIngredients() {
-        records.append(IngredientStock(withName: "Potatoes", forAmount: 5.0, forMaxAmount: 10.0, inUnits: "kg"))
-        records.append(IngredientStock(withName: "Ketchup", forAmount: 5.0, forMaxAmount: 5.0, inUnits: "oz"))
-        records.append(IngredientStock(withName: "Guacamole", forAmount: 0.0, forMaxAmount: 1.0, inUnits: "oz"))
+        records.append(IngredientStock(withName: "Potatoes", forAmount: 5.0, forMaxAmount: 10.0, forMinAmount: 1.0, inUnits: "kg"))
+        records.append(IngredientStock(withName: "Ketchup", forAmount: 1.0, forMaxAmount: 5.0, forMinAmount: 2.5, inUnits: "oz"))
+        records.append(IngredientStock(withName: "Guacamole", forAmount: 0.0, forMaxAmount: 1.0, forMinAmount: 0.5, inUnits: "oz"))
     }
     
     @IBAction func back(_ sender: UIBarButtonItem) {
@@ -66,10 +66,19 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
         let record = records[indexPath.row]
         
         cell.nameLabel.text = record.ingredient.name
-        cell.quantityLabel.text = record.getQuantityAsString()
+        cell.quantityLabel.text = record.getMaxQuantityAsString()
         cell.setIndex(as: indexPath.row)
         cell.delegate = self
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        let lowQuantity = record.lowQuantityIngredient()
+        
+        if (lowQuantity == false) {
+            cell.lowOnStockLabel.isHidden = true
+        }
+        else {
+            cell.lowOnStockLabel.isHidden = false
+        }
+        
         
         return cell
     }
@@ -77,6 +86,8 @@ class IngredientTableViewController: UITableViewController, ReplenishDelegate {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+    
+
 
     
     // MARK: - Navigation

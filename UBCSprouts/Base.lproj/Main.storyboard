@@ -220,6 +220,16 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-MG-4t1">
                                                             <rect key="frame" x="0.0" y="0.0" width="248" height="20"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low On Stock!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRI-0e-Pai">
+                                                                    <rect key="frame" x="0.0" y="-1" width="118" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" red="1" green="0.11695039530784024" blue="0.27721469925873976" alpha="0.92904537671232879" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Dtd-Vi-1Vr"/>
@@ -251,6 +261,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="lowOnStockLabel" destination="gRI-0e-Pai" id="c6h-Vb-Nwe"/>
                                     <outlet property="nameLabel" destination="59F-jt-7bn" id="7W5-wP-qXQ"/>
                                     <outlet property="quantityLabel" destination="Tys-df-4DJ" id="pQm-Xf-wt4"/>
                                 </connections>
@@ -265,7 +276,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUK-aD-j1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="K9K-ir-zks" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="695"/>
+            <point key="canvasLocation" x="1720.8" y="694.90254872563719"/>
         </scene>
         <!--New Ingredient-->
         <scene sceneID="Iog-zi-yXb">
@@ -276,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Xgq-9b-RmV">
-                                <rect key="frame" x="0.0" y="104" width="375" height="478"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="558.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YNZ-B2-i2S">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
@@ -329,8 +340,25 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IJy-Ig-5UC">
+                                        <rect key="frame" x="0.0" y="241.5" width="375" height="55.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeE-ME-I3Y">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Ingredient Name Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LiI-jV-kkj">
+                                                <rect key="frame" x="0.0" y="25.5" width="375" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eMN-bg-w7n">
-                                        <rect key="frame" x="0.0" y="241.5" width="375" height="236.5"/>
+                                        <rect key="frame" x="0.0" y="322" width="375" height="236.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-Op-7qs">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -364,6 +392,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientMaxTextField" destination="GhC-t3-lOc" id="DAn-Vd-X0w"/>
+                        <outlet property="ingredientMinTextField" destination="LiI-jV-kkj" id="7jE-8y-Vha"/>
                         <outlet property="ingredientNameTextField" destination="RWS-QY-okJ" id="DVl-kw-gbb"/>
                         <outlet property="ingredientTypePicker" destination="h25-cq-tS8" id="K9H-tN-DL4"/>
                         <outlet property="ingredientWeightTextField" destination="4rQ-Jd-ADX" id="Ouc-RJ-CXo"/>

@@ -18,6 +18,7 @@ class IngredientViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var ingredientWeightTextField: UITextField!
     
     @IBOutlet weak var ingredientMaxTextField: UITextField!
+    @IBOutlet weak var ingredientMinTextField: UITextField!
     
     @IBOutlet weak var ingredientTypePicker: UIPickerView!
     

@@ -16,6 +16,7 @@ class IngredientTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var quantityLabel: UITextField!
+    @IBOutlet weak var lowOnStockLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +41,7 @@ class IngredientTableViewCell: UITableViewCell {
     @IBAction func replenishOne(_ sender: UIButton) {
         delegate?.replenish(forIndex: index)
     }
+
     
 }
 
