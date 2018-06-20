@@ -116,10 +116,52 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.reloadData()
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        myIndex = indexPath.row
-        performSegue(withIdentifier: "volunteerDetailSegue", sender: self)
+    // Saurav was trying to do something with this but it isn't ready yet
+    //override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    //{
+    //    myIndex = indexPath.row
+    //    performSegue(withIdentifier: "volunteerDetailSegue", sender: self)
+    //}
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                fatalError("Blame the tutorial, not me!")
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            managedContext.delete(tableData[indexPath.row])
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                fatalError("AAAAA \(error), \(error.userInfo)")
+            }
+            
+            loadVolunteers()
+            tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "edit" {
+            guard let selectedCell = sender as? UITableViewCell else {
+                fatalError("Honestly there's no chance this error should happen")
+            }
+            guard let destination = segue.destination as? AddVolunteerViewController else {
+                fatalError("There's a small chance this error could happen")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedCell) else {
+                fatalError("I would not be surprised if this error happened")
+            }
+            let selectedVolunteerMO = tableData[indexPath.row]
+            destination.volunteerData = selectedVolunteerMO
+            destination.returnSegue = "people"
+        }
     }
 
 }

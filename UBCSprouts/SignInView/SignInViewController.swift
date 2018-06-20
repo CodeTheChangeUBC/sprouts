@@ -29,6 +29,7 @@ class SignInViewController: UIViewController {
             else {
                 UserDefaults.standard.set("member", forKey: "login")
             }
+            UserDefaults.standard.set(userField.text ?? "", forKey: "email")
             performSegue(withIdentifier: "login", sender: self)
         } else {
             let alert = UIAlertController(title: "Error", message: "Login credentials invalid", preferredStyle: UIAlertControllerStyle.alert)
@@ -51,6 +52,9 @@ class SignInViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Uncomment the next two lines to remove remembered logins
+        UserDefaults.standard.removeObject(forKey: "login")
+        UserDefaults.standard.removeObject(forKey: "email")
         let status = UserDefaults.standard.object(forKey: "login")
         if (status != nil) {
             performSegue(withIdentifier: "login", sender: self)

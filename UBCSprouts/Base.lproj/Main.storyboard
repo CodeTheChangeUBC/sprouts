@@ -458,7 +458,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Lu5-J7-ETp">
-                                <rect key="frame" x="16" y="34" width="335" height="122.5"/>
+                                <rect key="frame" x="16" y="78" width="335" height="122.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oI-OW-Kvo">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="20.5"/>
@@ -538,7 +538,7 @@
                                     <navigationItem title="Add/Edit Volunteer" id="x9g-YZ-Qgr">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eBX-Jk-Iyn">
                                             <connections>
-                                                <segue destination="SWE-hY-qLQ" kind="show" identifier="cancel" id="AFX-EE-XFN"/>
+                                                <action selector="cancel:" destination="WWV-GY-3mR" id="wze-bd-BhH"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ha1-bX-7Xi">
@@ -654,7 +654,8 @@
                         <outlet property="firstNameTextField" destination="RNA-og-bbd" id="MbC-86-utA"/>
                         <outlet property="lastNameTextField" destination="f5a-gf-31B" id="mLZ-Gj-syx"/>
                         <outlet property="phoneNumberTextField" destination="TPE-MR-9qO" id="Yl4-pp-Icd"/>
-                        <segue destination="SWE-hY-qLQ" kind="show" identifier="save" id="cHG-Ms-gEU"/>
+                        <segue destination="SWE-hY-qLQ" kind="show" identifier="people" id="cHG-Ms-gEU"/>
+                        <segue destination="mL2-9q-bXb" kind="show" identifier="checkin" id="QKA-xz-ttR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGN-8T-WES" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1166,8 +1167,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wyn-fU-KP5">
+                                <rect key="frame" x="16" y="36" width="343" height="248"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JR-Dk-M55">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8k-V1-dYl">
+                                        <rect key="frame" x="0.0" y="88" width="343" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsC-3Z-iHh">
+                                        <rect key="frame" x="0.0" y="176" width="343" height="72"/>
+                                        <color key="backgroundColor" red="0.23921568627450981" green="0.69803921568627447" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkInButtonPressed:" destination="mL2-9q-bXb" eventType="touchUpInside" id="wOr-pN-Jhg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ccq-X3-iLE">
-                                <rect key="frame" x="16" y="554" width="343" height="48"/>
+                                <rect key="frame" x="16" y="384" width="343" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQk-Ay-wSA">
                                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="48"/>
@@ -1176,6 +1205,9 @@
                                         <state key="normal" title="Info">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="viewInfo:" destination="mL2-9q-bXb" eventType="touchUpInside" id="UhC-vE-tQB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCS-F8-zXN">
                                         <rect key="frame" x="175.5" y="0.0" width="167.5" height="48"/>
@@ -1193,15 +1225,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cLi-l8-Kxe" firstAttribute="bottom" secondItem="ccq-X3-iLE" secondAttribute="bottom" constant="16" id="Amc-Qz-jxn"/>
                             <constraint firstItem="ccq-X3-iLE" firstAttribute="leading" secondItem="cLi-l8-Kxe" secondAttribute="leading" constant="16" id="Dx3-qn-IAq"/>
+                            <constraint firstItem="cLi-l8-Kxe" firstAttribute="trailing" secondItem="wyn-fU-KP5" secondAttribute="trailing" constant="16" id="M8t-en-xFi"/>
+                            <constraint firstItem="wyn-fU-KP5" firstAttribute="top" secondItem="cLi-l8-Kxe" secondAttribute="top" constant="16" id="RSZ-GM-qN3"/>
+                            <constraint firstItem="ccq-X3-iLE" firstAttribute="top" secondItem="wyn-fU-KP5" secondAttribute="bottom" constant="100" id="Xd2-yJ-aUk"/>
                             <constraint firstItem="cLi-l8-Kxe" firstAttribute="trailing" secondItem="ccq-X3-iLE" secondAttribute="trailing" constant="16" id="dqY-6M-GgC"/>
+                            <constraint firstItem="wyn-fU-KP5" firstAttribute="leading" secondItem="cLi-l8-Kxe" secondAttribute="leading" constant="16" id="vbK-8K-S3r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cLi-l8-Kxe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="first" id="SfS-LX-Ue7"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="first" id="RZD-zl-C3T" userLabel="Settings"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="checkInButton" destination="xsC-3Z-iHh" id="yak-TD-d0Q"/>
+                        <outlet property="greetingLabel" destination="3JR-Dk-M55" id="Wgd-Tf-9Ag"/>
+                        <outlet property="statusLabel" destination="i8k-V1-dYl" id="ckW-pU-Bho"/>
                         <segue destination="4xg-12-lwj" kind="show" identifier="logout" id="odz-A1-iAz"/>
+                        <segue destination="WWV-GY-3mR" kind="show" identifier="info" id="7va-lt-XBu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwW-Eg-mt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1234,7 +1274,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aH3-HK-Q4b">
                                 <rect key="frame" x="40" y="270" width="295" height="170.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4f-46-MX0">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4f-46-MX0">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1336,8 +1376,9 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="QKA-xz-ttR"/>
         <segue reference="cHG-Ms-gEU"/>
-        <segue reference="yQW-9N-b7h"/>
+        <segue reference="7va-lt-XBu"/>
         <segue reference="Gds-xA-5gI"/>
         <segue reference="lYd-TM-iW0"/>
         <segue reference="1dg-xt-VeP"/>

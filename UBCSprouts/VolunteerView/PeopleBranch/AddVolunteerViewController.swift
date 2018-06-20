@@ -13,6 +13,7 @@ class AddVolunteerViewController: UIViewController {
     
     var volunteerData: VolunteerMO!
     var addingNewVolunteer: Bool!
+    var returnSegue: String!
 
     //MARK: Properties
     
@@ -40,6 +41,10 @@ class AddVolunteerViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addVolunteer(_ sender: UIBarButtonItem) {
@@ -73,6 +78,6 @@ class AddVolunteerViewController: UIViewController {
             fatalError("\(error), \(error.userInfo)")
         }
         
-        performSegue(withIdentifier: "save", sender: sender)
+        performSegue(withIdentifier: returnSegue, sender: sender)
     }
 }
