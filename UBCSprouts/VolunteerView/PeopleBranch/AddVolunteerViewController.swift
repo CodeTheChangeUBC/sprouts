@@ -28,17 +28,21 @@ class AddVolunteerViewController: UIViewController {
         super.viewDidLoad()
 
         if volunteerData == nil {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let eventEntity = NSEntityDescription.entity(forEntityName: "Volunteer", in: managedContext)!
+            volunteerData = NSManagedObject(entity: eventEntity, insertInto: managedContext) as! VolunteerMO
             addingNewVolunteer = true
+            editingSelf = false
         } else {
-            addingNewVolunteer = false
             firstNameTextField.text = volunteerData.first_name
             lastNameTextField.text = volunteerData.last_name
             ageTextField.text = String(volunteerData.age)
             emailTextField.text = volunteerData.email
             phoneNumberTextField.text = volunteerData.phone_number
+            addingNewVolunteer = false
+            editingSelf = (UserDefaults.standard.object(forKey: "email") as! String) == volunteerData.email
         }
-        
-        editingSelf = (UserDefaults.standard.object(forKey: "email") as! String) == volunteerData.email
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +51,20 @@ class AddVolunteerViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        managedContext.rollback()
+        performSegue(withIdentifier: returnSegue, sender: self)
+    }
+    
+    @IBAction func timeSheet(_ sender: UIButton) {
+        volunteerData.setValue(firstNameTextField.text, forKey: "first_name")
+        volunteerData.setValue(lastNameTextField.text, forKey: "last_name")
+        volunteerData.setValue(Int(ageTextField.text!), forKey: "age")
+        volunteerData.setValue(emailTextField.text, forKey: "email")
+        volunteerData.setValue(phoneNumberTextField.text, forKey: "phone_number")
+        
+        performSegue(withIdentifier: "shifts", sender: self)
     }
     
     @IBAction func addVolunteer(_ sender: UIBarButtonItem) {
@@ -55,25 +72,11 @@ class AddVolunteerViewController: UIViewController {
             fatalError("Blame the tutorial, not me!")
         }
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let volunteerEntity = NSEntityDescription.entity(forEntityName: "Volunteer", in: managedContext)!
-        
-        if addingNewVolunteer {
-            let newVolunteer = NSManagedObject(entity: volunteerEntity, insertInto: managedContext)
-            newVolunteer.setValue(firstNameTextField.text, forKey: "first_name")
-            newVolunteer.setValue(lastNameTextField.text, forKey: "last_name")
-            newVolunteer.setValue(Int(ageTextField.text!), forKey: "age")
-            newVolunteer.setValue(emailTextField.text, forKey: "email")
-            newVolunteer.setValue(phoneNumberTextField.text, forKey: "phone_number")
-            newVolunteer.setValue("Vancouver", forKey: "campus")
-            newVolunteer.setValue(Date(), forKey: "dateJoined")
-        } else {
-            volunteerData.setValue(firstNameTextField.text, forKey: "first_name")
-            volunteerData.setValue(lastNameTextField.text, forKey: "last_name")
-            volunteerData.setValue(Int(ageTextField.text!), forKey: "age")
-            volunteerData.setValue(emailTextField.text, forKey: "email")
-            volunteerData.setValue(phoneNumberTextField.text, forKey: "phone_number")
-        }
+        volunteerData.setValue(firstNameTextField.text, forKey: "first_name")
+        volunteerData.setValue(lastNameTextField.text, forKey: "last_name")
+        volunteerData.setValue(Int(ageTextField.text!), forKey: "age")
+        volunteerData.setValue(emailTextField.text, forKey: "email")
+        volunteerData.setValue(phoneNumberTextField.text, forKey: "phone_number")
         
         if editingSelf {
             UserDefaults.standard.set(emailTextField.text, forKey: "email")
@@ -87,4 +90,18 @@ class AddVolunteerViewController: UIViewController {
         
         performSegue(withIdentifier: returnSegue, sender: sender)
     }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "shifts" {
+            let dest = segue.destination as! ShiftsTableViewController
+            dest.volunteerData = volunteerData
+            dest.addingNewVolunteer = addingNewVolunteer
+            dest.returnSegue = returnSegue
+            dest.editingSelf = editingSelf
+        }
+    }
+
 }

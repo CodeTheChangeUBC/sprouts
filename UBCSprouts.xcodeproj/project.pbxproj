@@ -21,6 +21,8 @@
 		84032C282038E70400D11F57 /* PendingMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C272038E70400D11F57 /* PendingMeal.swift */; };
 		84032C2C2038E98500D11F57 /* PendingMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C2B2038E98500D11F57 /* PendingMealTableViewCell.swift */; };
 		84032C302038EA2000D11F57 /* PendingMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84032C2F2038EA2000D11F57 /* PendingMealTableViewController.swift */; };
+		843A268720DC0CDA00A53E4C /* ShiftsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A268620DC0CDA00A53E4C /* ShiftsTableViewCell.swift */; };
+		843A268920DC0CEE00A53E4C /* ShiftsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A268820DC0CEE00A53E4C /* ShiftsTableViewController.swift */; };
 		843DA6202064945600CED6A9 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DA61F2064945600CED6A9 /* EventsTableViewController.swift */; };
 		843DA6222064946700CED6A9 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DA6212064946700CED6A9 /* EventsTableViewCell.swift */; };
 		84502D922038A4770029B322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84502D912038A4770029B322 /* AppDelegate.swift */; };
@@ -66,6 +68,8 @@
 		84032C272038E70400D11F57 /* PendingMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMeal.swift; sourceTree = "<group>"; };
 		84032C2B2038E98500D11F57 /* PendingMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMealTableViewCell.swift; sourceTree = "<group>"; };
 		84032C2F2038EA2000D11F57 /* PendingMealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMealTableViewController.swift; sourceTree = "<group>"; };
+		843A268620DC0CDA00A53E4C /* ShiftsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsTableViewCell.swift; sourceTree = "<group>"; };
+		843A268820DC0CEE00A53E4C /* ShiftsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsTableViewController.swift; sourceTree = "<group>"; };
 		843DA61F2064945600CED6A9 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		843DA6212064946700CED6A9 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		84502D8E2038A4770029B322 /* UBCSprouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UBCSprouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,8 @@
 				63EBE5FE20649A9E0011008B /* PeopleTableViewController.swift */,
 				63EBE6042069C81A0011008B /* AddVolunteerViewController.swift */,
 				637020C220D067F0008DD18E /* VolunteerDetailsViewController.swift */,
+				843A268620DC0CDA00A53E4C /* ShiftsTableViewCell.swift */,
+				843A268820DC0CEE00A53E4C /* ShiftsTableViewController.swift */,
 			);
 			path = PeopleBranch;
 			sourceTree = "<group>";
@@ -346,10 +352,12 @@
 				8454197F20642C8C00F86497 /* UserViewController.swift in Sources */,
 				45C723642056EBF2005C1016 /* IngredientViewController.swift in Sources */,
 				84032C222038C25400D11F57 /* IngredientTableViewCell.swift in Sources */,
+				843A268720DC0CDA00A53E4C /* ShiftsTableViewCell.swift in Sources */,
 				843DA6222064946700CED6A9 /* EventsTableViewCell.swift in Sources */,
 				84032C242038CD8500D11F57 /* MealTableViewCell.swift in Sources */,
 				84C41BCA20D30E86003E29A9 /* EventVolunteersTableViewController.swift in Sources */,
 				84502D962038A4770029B322 /* InventoryViewController.swift in Sources */,
+				843A268920DC0CEE00A53E4C /* ShiftsTableViewController.swift in Sources */,
 				84502DB42038A5D50029B322 /* DocumentsViewController.swift in Sources */,
 				84F214D3209A933000FC1EBF /* EventAddVolunteersTableViewController.swift in Sources */,
 				84032C302038EA2000D11F57 /* PendingMealTableViewController.swift in Sources */,
