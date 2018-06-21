@@ -1196,7 +1196,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ccq-X3-iLE">
-                                <rect key="frame" x="16" y="384" width="343" height="48"/>
+                                <rect key="frame" x="16" y="554" width="343" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQk-Ay-wSA">
                                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="48"/>
@@ -1228,9 +1228,9 @@
                             <constraint firstItem="ccq-X3-iLE" firstAttribute="leading" secondItem="cLi-l8-Kxe" secondAttribute="leading" constant="16" id="Dx3-qn-IAq"/>
                             <constraint firstItem="cLi-l8-Kxe" firstAttribute="trailing" secondItem="wyn-fU-KP5" secondAttribute="trailing" constant="16" id="M8t-en-xFi"/>
                             <constraint firstItem="wyn-fU-KP5" firstAttribute="top" secondItem="cLi-l8-Kxe" secondAttribute="top" constant="16" id="RSZ-GM-qN3"/>
-                            <constraint firstItem="ccq-X3-iLE" firstAttribute="top" secondItem="wyn-fU-KP5" secondAttribute="bottom" constant="100" id="Xd2-yJ-aUk"/>
                             <constraint firstItem="cLi-l8-Kxe" firstAttribute="trailing" secondItem="ccq-X3-iLE" secondAttribute="trailing" constant="16" id="dqY-6M-GgC"/>
                             <constraint firstItem="wyn-fU-KP5" firstAttribute="leading" secondItem="cLi-l8-Kxe" secondAttribute="leading" constant="16" id="vbK-8K-S3r"/>
+                            <constraint firstItem="cLi-l8-Kxe" firstAttribute="bottom" secondItem="ccq-X3-iLE" secondAttribute="bottom" constant="16" id="y1h-a0-y1K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cLi-l8-Kxe"/>
                     </view>

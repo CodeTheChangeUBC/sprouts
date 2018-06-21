@@ -14,6 +14,7 @@ class AddVolunteerViewController: UIViewController {
     var volunteerData: VolunteerMO!
     var addingNewVolunteer: Bool!
     var returnSegue: String!
+    var editingSelf: Bool! // if true, get new access token after modifying info
 
     //MARK: Properties
     
@@ -36,6 +37,8 @@ class AddVolunteerViewController: UIViewController {
             emailTextField.text = volunteerData.email
             phoneNumberTextField.text = volunteerData.phone_number
         }
+        
+        editingSelf = (UserDefaults.standard.object(forKey: "email") as! String) == volunteerData.email
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +73,10 @@ class AddVolunteerViewController: UIViewController {
             volunteerData.setValue(Int(ageTextField.text!), forKey: "age")
             volunteerData.setValue(emailTextField.text, forKey: "email")
             volunteerData.setValue(phoneNumberTextField.text, forKey: "phone_number")
+        }
+        
+        if editingSelf {
+            UserDefaults.standard.set(emailTextField.text, forKey: "email")
         }
         
         do {
