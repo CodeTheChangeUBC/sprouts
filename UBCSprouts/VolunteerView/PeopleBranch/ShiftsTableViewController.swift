@@ -50,21 +50,29 @@ class ShiftsTableViewController: UITableViewController {
         
         let cal = Calendar.current
         
-        let startHour = String(cal.component(.hour, from: shift.start!))
-        let startMinute = String(cal.component(.minute, from: shift.start!))
-        let endHour = String(cal.component(.hour, from: shift.end!))
-        let endMinute = String(cal.component(.minute, from: shift.end!))
-        
-        let times = startHour + ":" + startMinute + "-" + endHour + ":" + endMinute
-        
-        cell.timeLabel.text = times
-        
-        let duration = DateInterval(start: shift.start!, end: shift.end!).duration
-        
-        // Rounds hours to two decimal places
-        let totalHours = String(Double(round(100 * duration / 3600) / 100))
-        
-        cell.hoursLabel.text = totalHours + " hours"
+        if let endDate = shift.end {
+            let startHour = String(cal.component(.hour, from: shift.start!))
+            let startMinute = String(cal.component(.minute, from: shift.start!))
+            let endHour = String(cal.component(.hour, from: endDate))
+            let endMinute = String(cal.component(.minute, from: endDate))
+            
+            let times = startHour + ":" + startMinute + "-" + endHour + ":" + endMinute
+            
+            cell.timeLabel.text = times
+            
+            let duration = DateInterval(start: shift.start!, end: shift.end!).duration
+            
+            // Rounds hours to two decimal places
+            let totalHours = String(Double(round(100 * duration / 3600) / 100))
+            
+            cell.hoursLabel.text = totalHours + " hours"
+        } else {
+            cell.timeLabel.text = "In progress"
+            
+            let duration = DateInterval(start: shift.start!, end: Date()).duration
+            let totalHours = String(Double(round(100 * duration / 3600) / 100))
+            cell.hoursLabel.text = totalHours + " hours so far"
+        }
 
         return cell
     }

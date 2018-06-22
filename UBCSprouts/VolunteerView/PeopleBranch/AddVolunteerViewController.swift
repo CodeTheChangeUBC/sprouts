@@ -101,6 +101,9 @@ class AddVolunteerViewController: UIViewController {
             dest.addingNewVolunteer = addingNewVolunteer
             dest.returnSegue = returnSegue
             dest.editingSelf = editingSelf
+        } else if segue.identifier == "checkin" {
+            let dest = segue.destination as! UITabBarController
+            dest.selectedIndex = 3
         }
     }
 

@@ -64,7 +64,7 @@ class SignInViewController: UIViewController {
     // TODO: implement properly
     // returns true if login info valid, false otherwise
     private func checkInfo(withUsername username: String, withPassword password: String, asAdmin isAdmin: Bool) -> Bool {
-        return true
+        return username == "johndoe@example.com"
     }
 
 }

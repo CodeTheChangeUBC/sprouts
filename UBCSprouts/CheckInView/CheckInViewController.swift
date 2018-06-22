@@ -13,6 +13,7 @@ class CheckInViewController: UIViewController {
     
     var user: PersonMO!
     var userShifts: [ShiftMO]!
+    var currentShift: ShiftMO!
 
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -23,7 +24,48 @@ class CheckInViewController: UIViewController {
     }
     
     @IBAction func checkInButtonPressed(_ sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
         
+        if currentShift == nil {
+            performSegue(withIdentifier: "addEvent", sender: self)
+        } else {
+            currentShift.setValue(Date(), forKey: "end")
+            currentShift.setValue(true, forKey: "completed")
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            fatalError("Time paradox error: \(error.description)")
+        }
+        
+        displayLabels()
+    }
+    
+    // add new shift to user, with selected event as event
+    @IBAction func unwindFromEventSelection(sender: UIStoryboardSegue) {
+        if let source = sender.source as? RegisteredEventsTableViewController, let event = source.selectedEvent {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let shiftEntity = NSEntityDescription.entity(forEntityName: "Shift", in: managedContext)!
+            let newShift = NSManagedObject(entity: shiftEntity, insertInto: managedContext) as! ShiftMO
+            newShift.setValue("", forKey: "shift_description")
+            newShift.setValue(false, forKey: "completed")
+            newShift.setValue(Date(), forKey: "start")
+            event.addToShifts(newShift)
+            user.addToShifts(newShift)
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                fatalError("Try again, bub. \(error.description)")
+            }
+            
+            displayLabels()
+        } else {
+            fatalError("You are not authorized to use this unwind segue. I'm talking to YOU, the developer who wrote the code that led to this error")
+        }
     }
     
     @IBAction func logout(_ sender: UIButton) {
@@ -59,13 +101,13 @@ class CheckInViewController: UIViewController {
         } else {
             user = listOfOneThing.first!
         }
-        userShifts = user.shifts?.allObjects as! [ShiftMO]
         displayLabels()
     }
     
     private func displayLabels() {
         greetingLabel.text = "Hello, " + (user.first_name ?? "user")
-        var currentShift: ShiftMO?
+        userShifts = user.shifts?.allObjects as! [ShiftMO]
+        currentShift = nil
         for shift in userShifts {
             if !shift.completed {
                 if currentShift != nil {
@@ -100,6 +142,11 @@ class CheckInViewController: UIViewController {
             // Right now, the app only works for members. If used by an admin, this line will probably cause a crash
             destination.volunteerData = user as! VolunteerMO
             destination.returnSegue = "checkin"
+        } else if segue.identifier == "addEvent" {
+            guard let destination = segue.destination as? RegisteredEventsTableViewController else {
+                fatalError("This one does. It's error 24, not that it means anything")
+            }
+            destination.tableData = user.events_signed_up_for?.allObjects as! [EventMO]
         }
     }
 

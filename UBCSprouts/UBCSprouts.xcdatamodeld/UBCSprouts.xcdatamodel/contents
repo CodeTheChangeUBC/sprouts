@@ -36,7 +36,7 @@
     </entity>
     <entity name="Shift" representedClassName="ShiftMO" syncable="YES" codeGenerationType="class">
         <attribute name="completed" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="end" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shift_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="start" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="shifts" inverseEntity="Event" syncable="YES"/>
