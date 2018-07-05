@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4xg-12-lwj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4xg-12-lwj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,7 +77,7 @@
                                 <navigationItem title="Events" id="Gdd-Fm-6tx">
                                     <barButtonItem key="leftBarButtonItem" title="Back" id="i7F-89-pge">
                                         <connections>
-                                            <segue destination="49e-Tb-3d3" kind="show" identifier="back" id="rrQ-mK-7ZI"/>
+                                            <action selector="back:" destination="0b5-fX-mim" id="72u-kj-4cC"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="PUo-WV-sdJ">
@@ -260,13 +260,12 @@
                                     <navigationItem title="Event Details" id="fOj-HW-WfU">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="x4z-sZ-qRP">
                                             <connections>
-                                                <action selector="back:" destination="5hI-tv-otQ" id="yOs-7B-32o"/>
-                                                <segue destination="0b5-fX-mim" kind="show" identifier="Back" id="1dg-xt-VeP"/>
+                                                <segue destination="0MD-bM-FQd" kind="unwind" unwindAction="unwindToEventsTableViewWithSender:" id="l1T-eG-VGE"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="Eqf-it-uPo">
                                             <connections>
-                                                <action selector="saveEvent:" destination="5hI-tv-otQ" id="ZhG-iR-0wb"/>
+                                                <segue destination="0MD-bM-FQd" kind="unwind" unwindAction="unwindToEventsTableViewWithSender:" id="bZH-kk-UgJ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -282,13 +281,16 @@
                         <viewLayoutGuide key="safeArea" id="46T-Fl-hUL"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="x4z-sZ-qRP" id="nT0-FC-k4H"/>
                         <outlet property="descriptionField" destination="Wcd-Mo-IqX" id="tJJ-qk-5ZB"/>
+                        <outlet property="editButton" destination="8Y8-z4-ZfI" id="tEp-yx-eAk"/>
                         <outlet property="locationField" destination="vSB-Ke-XTx" id="3BO-g2-sMV"/>
                         <outlet property="nameField" destination="Rxe-bj-jHR" id="I6b-np-bHN"/>
-                        <segue destination="0b5-fX-mim" kind="show" identifier="Save" id="KF6-e0-swm"/>
+                        <outlet property="saveButton" destination="Eqf-it-uPo" id="v7U-BG-PqR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYn-oo-RQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0MD-bM-FQd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2593" y="-2373"/>
         </scene>
@@ -307,7 +309,7 @@
                                 <navigationItem title="Volunteers" id="fdu-oD-vAp">
                                     <barButtonItem key="leftBarButtonItem" title="Back" id="8fb-pV-CKn">
                                         <connections>
-                                            <segue destination="5hI-tv-otQ" kind="show" id="lYd-TM-iW0"/>
+                                            <segue destination="zdR-pl-pbM" kind="unwind" unwindAction="unwindToEventDetailsWithSender:" id="ABZ-hE-uyA"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="Add" id="ceC-H2-ZS1">
@@ -344,6 +346,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HyB-QJ-sqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zdR-pl-pbM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3500" y="-2373"/>
         </scene>
@@ -362,12 +365,12 @@
                                 <navigationItem title="Add Volunteer" id="yyV-om-Lhq">
                                     <barButtonItem key="leftBarButtonItem" title="Cancel" id="Q6Z-xs-nXc">
                                         <connections>
-                                            <segue destination="H02-fR-VPb" kind="show" identifier="Cancel" id="nDe-Hd-qT7"/>
+                                            <segue destination="eOy-Z0-dgx" kind="unwind" unwindAction="unwindToEventVolunteersListWithSender:" id="j4R-vE-SZV"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="Add" id="eGa-MX-hi0">
                                         <connections>
-                                            <segue destination="H02-fR-VPb" kind="show" identifier="Add" id="Gds-xA-5gI"/>
+                                            <segue destination="eOy-Z0-dgx" kind="unwind" unwindAction="unwindToEventVolunteersListWithSender:" id="69T-3D-cS5"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -388,8 +391,12 @@
                             <outlet property="delegate" destination="dpO-WY-gia" id="aYo-Pd-1gP"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addButton" destination="eGa-MX-hi0" id="DU8-eG-sDp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcm-3L-JIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eOy-Z0-dgx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4476" y="-2373"/>
         </scene>
@@ -431,7 +438,7 @@
                     <navigationItem key="navigationItem" title="Volunteers" id="K6y-Iw-Erp">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Nay-zg-zW0">
                             <connections>
-                                <segue destination="Nyy-NU-9xb" kind="unwind" unwindAction="unwindSegue:" id="TQM-NB-LY7"/>
+                                <action selector="back:" destination="ONp-WT-mZa" id="pBI-cs-dEv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hxY-fK-a5P">
@@ -440,12 +447,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="oLo-m4-bHi" kind="show" identifier="volunteerDetailSegue" id="Ns2-Th-Vyx"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1q-Rl-bIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Nyy-NU-9xb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2903" y="-1010"/>
         </scene>
@@ -458,7 +461,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Lu5-J7-ETp">
-                                <rect key="frame" x="16" y="78" width="335" height="122.5"/>
+                                <rect key="frame" x="16" y="34" width="335" height="122.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oI-OW-Kvo">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="20.5"/>
@@ -663,16 +666,18 @@
                     </view>
                     <connections>
                         <outlet property="ageTextField" destination="iEc-0E-msE" id="zey-Qk-vHz"/>
+                        <outlet property="doneButton" destination="Ha1-bX-7Xi" id="Bl0-EV-tUZ"/>
                         <outlet property="emailTextField" destination="rOl-FL-i9u" id="zxP-dy-LAz"/>
                         <outlet property="firstNameTextField" destination="RNA-og-bbd" id="MbC-86-utA"/>
                         <outlet property="lastNameTextField" destination="f5a-gf-31B" id="mLZ-Gj-syx"/>
                         <outlet property="phoneNumberTextField" destination="TPE-MR-9qO" id="Yl4-pp-Icd"/>
-                        <segue destination="SWE-hY-qLQ" kind="show" identifier="people" id="cHG-Ms-gEU"/>
                         <segue destination="eC8-6U-bRj" kind="show" identifier="shifts" id="iCU-Dn-gf8"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="checkin" id="gwr-Vd-YKc"/>
+                        <segue destination="PHd-Gs-oqU" kind="unwind" identifier="people" unwindAction="unwindToPeopleTableViewWithSender:" id="gZB-yj-lBT"/>
+                        <segue destination="PHd-Gs-oqU" kind="unwind" identifier="checkin" unwindAction="unwindToProfileFromInfoEditWithSender:" id="iXV-wR-01W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGN-8T-WES" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PHd-Gs-oqU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4009" y="-904"/>
         </scene>
@@ -691,7 +696,7 @@
                                 <navigationItem title="Timesheet" id="M7n-d8-Neh">
                                     <barButtonItem key="rightBarButtonItem" title="Done" id="qMU-o2-avb">
                                         <connections>
-                                            <segue destination="WWV-GY-3mR" kind="show" id="d6M-Q8-YpZ"/>
+                                            <segue destination="BXr-CW-9Aj" kind="unwind" unwindAction="unwindToAddVolunteerViewWithSender:" id="8oo-e5-ALM"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -750,6 +755,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIG-8b-boS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BXr-CW-9Aj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5007" y="-904"/>
         </scene>
@@ -1398,7 +1404,7 @@
                                 <connections>
                                     <outlet property="locationLabel" destination="u67-W0-ELl" id="H9R-QJ-zbt"/>
                                     <outlet property="nameLabel" destination="E12-pm-GeX" id="ahC-E8-hq3"/>
-                                    <segue destination="pPf-MK-6IP" kind="unwind" unwindAction="unwindFromEventSelectionWithSender:" id="tbT-ra-CKm"/>
+                                    <segue destination="pPf-MK-6IP" kind="unwind" unwindAction="unwindToProfileFromEventSelectionWithSender:" id="tlQ-Y9-Cno"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1426,7 +1432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltG-8Z-Jyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="-716"/>
+            <point key="canvasLocation" x="-444" y="-1585"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="iwe-XY-ryB">
@@ -1541,11 +1547,7 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gwr-Vd-YKc"/>
-        <segue reference="cHG-Ms-gEU"/>
         <segue reference="7va-lt-XBu"/>
-        <segue reference="Gds-xA-5gI"/>
         <segue reference="dfI-bZ-Kib"/>
-        <segue reference="rug-O4-ABa"/>
     </inferredMetricsTieBreakers>
 </document>

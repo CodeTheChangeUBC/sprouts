@@ -43,8 +43,12 @@ class CheckInViewController: UIViewController {
         displayLabels()
     }
     
+    @IBAction func unwindToProfileFromInfoEdit(sender: UIStoryboardSegue) {
+        displayLabels()
+    }
+    
     // add new shift to user, with selected event as event
-    @IBAction func unwindFromEventSelection(sender: UIStoryboardSegue) {
+    @IBAction func unwindToProfileFromEventSelection(sender: UIStoryboardSegue) {
         if let source = sender.source as? RegisteredEventsTableViewController, let event = source.selectedEvent {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let managedContext = appDelegate.persistentContainer.viewContext
@@ -144,7 +148,7 @@ class CheckInViewController: UIViewController {
             destination.returnSegue = "checkin"
         } else if segue.identifier == "addEvent" {
             guard let destination = segue.destination as? RegisteredEventsTableViewController else {
-                fatalError("This one does. It's error 24, not that it means anything")
+                fatalError("This error has a number. It's error 24, not that it means anything")
             }
             destination.tableData = user.events_signed_up_for?.allObjects as! [EventMO]
         }

@@ -13,7 +13,6 @@ class EventVolunteersTableViewController: UITableViewController {
     
     var eventData: EventMO!
     var eventVolunteers: [VolunteerMO]!
-    var makingNewEvent: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +29,11 @@ class EventVolunteersTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func unwindToEventVolunteersList(sender: UIStoryboardSegue) {
+        loadVolunteers()
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -59,7 +63,6 @@ class EventVolunteersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             eventData.removeFromPeople(eventVolunteers[indexPath.row])
-            
             loadVolunteers()
             tableView.reloadData()
         }
@@ -74,13 +77,6 @@ class EventVolunteersTableViewController: UITableViewController {
                 fatalError("What am I even doing")
             }
             destination.eventData = eventData
-            destination.makingNewEvent = makingNewEvent
-        } else {
-            guard let destination = segue.destination as? EventDetailsViewController else {
-                fatalError("What am I even doing")
-            }
-            destination.eventData = eventData
-            destination.makingNewEvent = makingNewEvent
         }
     }
 

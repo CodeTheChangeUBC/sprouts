@@ -17,6 +17,9 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,40 +43,33 @@ class EventDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //replace with backend call later
-    @IBAction func saveEvent(_ sender: Any) {
-        eventData.setValue(nameField.text, forKey: "name")
-        eventData.setValue(locationField.text, forKey: "location")
-        eventData.setValue(descriptionField.text, forKey: "event_description")
-        
-        do {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let managedContext = appDelegate.persistentContainer.viewContext
-            try managedContext.save()
-        } catch let error as NSError {
-            fatalError("\(error), \(error.userInfo)")
-        }
-        
-        performSegue(withIdentifier: "Save", sender: sender)
+    @IBAction func unwindToEventDetails(sender: UIStoryboardSegue) {
+        // How do you write "do nothing" in swift?
     }
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditVolunteers" {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        if let button = sender as? UIBarButtonItem, button === backButton {
+            managedContext.rollback()
+        } else {
             eventData.setValue(nameField.text, forKey: "name")
             eventData.setValue(locationField.text, forKey: "location")
             eventData.setValue(descriptionField.text, forKey: "event_description")
-            
-            guard let destination = segue.destination as? EventVolunteersTableViewController else {
-                fatalError("What am I even doing")
+            if let button = sender as? UIButton, button === editButton {
+                guard let destination = segue.destination as? EventVolunteersTableViewController else {
+                    fatalError("What am I even doing")
+                }
+                destination.eventData = eventData
+            } else {
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    fatalError("\(error), \(error.userInfo)")
+                }
             }
-            destination.eventData = eventData
-            destination.makingNewEvent = makingNewEvent
-        } else if segue.identifier == "Back" {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let managedContext = appDelegate.persistentContainer.viewContext
-            managedContext.rollback()
         }
     }
 }

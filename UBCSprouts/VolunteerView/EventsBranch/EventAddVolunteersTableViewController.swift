@@ -13,8 +13,9 @@ class EventAddVolunteersTableViewController: UITableViewController {
     
     var eventData: EventMO!
     var volunteers: [VolunteerMO]!
-    var makingNewEvent: Bool!
 
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadVolunteers()
@@ -63,7 +64,7 @@ class EventAddVolunteersTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Add" {
+        if let button = sender as? UIBarButtonItem, button === addButton {
             let indexPath = tableView.indexPathForSelectedRow!
             let selectedVolunteer = volunteers[indexPath.row]
             if (eventData.people?.allObjects.contains(where: {($0 as! VolunteerMO) == selectedVolunteer}))! {
@@ -75,12 +76,6 @@ class EventAddVolunteersTableViewController: UITableViewController {
                 eventData.addToPeople(selectedVolunteer)
             }
         }
-        
-        guard let destination = segue.destination as? EventVolunteersTableViewController else {
-            fatalError("What am I even doing")
-        }
-        destination.eventData = eventData
-        destination.makingNewEvent = makingNewEvent
     }
 
 }

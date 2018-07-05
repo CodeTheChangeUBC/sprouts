@@ -24,6 +24,11 @@ class EventsTableViewController: UITableViewController {
         let eventFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
         tableData = try! managedContext.fetch(eventFetchRequest) as! [EventMO]
     }
+    
+    @IBAction func unwindToEventsTableView(sender: UIStoryboardSegue) {
+        loadEvents()
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,6 +101,9 @@ class EventsTableViewController: UITableViewController {
     }
     */
 
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Navigation
 

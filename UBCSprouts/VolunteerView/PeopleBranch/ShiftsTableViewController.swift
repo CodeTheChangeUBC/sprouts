@@ -12,9 +12,6 @@ import CoreData
 class ShiftsTableViewController: UITableViewController {
     
     var volunteerData: VolunteerMO!
-    var addingNewVolunteer: Bool!
-    var returnSegue: String!
-    var editingSelf: Bool!
     var tableData: [ShiftMO]!
 
     override func viewDidLoad() {
@@ -102,16 +99,4 @@ class ShiftsTableViewController: UITableViewController {
         return true
     }
     */
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! AddVolunteerViewController
-        dest.volunteerData = volunteerData
-        dest.addingNewVolunteer = addingNewVolunteer
-        dest.returnSegue = returnSegue
-        dest.editingSelf = editingSelf
-    }
-
 }

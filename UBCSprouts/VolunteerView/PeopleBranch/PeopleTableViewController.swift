@@ -59,6 +59,11 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unwindToPeopleTableView(sender: UIStoryboardSegue) {
+        loadVolunteers()
+        tableView.reloadData()
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filtArray = tableData.filter({(person: VolunteerMO) -> Bool in
@@ -148,20 +153,22 @@ class PeopleTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "edit" {
-            guard let selectedCell = sender as? UITableViewCell else {
-                fatalError("Honestly there's no chance this error should happen")
-            }
-            guard let destination = segue.destination as? AddVolunteerViewController else {
-                fatalError("There's a small chance this error could happen")
-            }
-            guard let indexPath = tableView.indexPath(for: selectedCell) else {
-                fatalError("I would not be surprised if this error happened")
-            }
-            let selectedVolunteerMO = tableData[indexPath.row]
-            destination.volunteerData = selectedVolunteerMO
+        if let destination = segue.destination as? AddVolunteerViewController {
             destination.returnSegue = "people"
+            if segue.identifier == "edit" {
+                guard let selectedCell = sender as? UITableViewCell else {
+                    fatalError("Honestly there's no chance this error should happen")
+                }
+                guard let indexPath = tableView.indexPath(for: selectedCell) else {
+                    fatalError("I would not be surprised if this error happened")
+                }
+                let selectedVolunteerMO = tableData[indexPath.row]
+                destination.volunteerData = selectedVolunteerMO
+            }
         }
     }
 
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }
